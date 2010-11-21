@@ -7,6 +7,10 @@ import java.awt.*;
 
 public class MainWindow extends JFrame {
     public MainWindow() {
+        super("Web Sound Recorder");
+
+        setBackground(Color.WHITE);
+        
         final SoundRecorder soundRecorder = new SoundRecorder();
         setLayout(new FlowLayout());
 
@@ -23,6 +27,7 @@ public class MainWindow extends JFrame {
         add(saveButton);
 
         pack();
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         System.out.println("dimensions: " + getWidth() + ":" + getHeight());

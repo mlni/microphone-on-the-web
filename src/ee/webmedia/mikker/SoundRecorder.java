@@ -122,20 +122,25 @@ public class SoundRecorder implements Recorder {
 
                 SourceDataLine sourceDataLine = (SourceDataLine) AudioSystem.getLine(dataLineInfo);
 
-                sourceDataLine.open(audioFormat);
-                sourceDataLine.start(); 
-
                 int bytesPerOneSecond = (int) (audioFormat.getFrameRate() * audioFormat.getFrameSize());
                 byte tempBuffer[] = new byte[bytesPerOneSecond];
                 
                 int cnt;
                 stopPlayback = false;
+                boolean started = false;
 
-                while((cnt = audioInputStream.read(tempBuffer,0,tempBuffer.length)) != -1 && stopPlayback == false) {
+
+                do {
+                    cnt = audioInputStream.read(tempBuffer,0,tempBuffer.length);
                     if(cnt > 0){
                         sourceDataLine.write(tempBuffer, 0, cnt);
+                        if (!started) {
+                            sourceDataLine.open(audioFormat);
+                            sourceDataLine.start();
+                            started = true;
+                        }
                     }
-                }
+                } while(cnt != -1 && stopPlayback == false);
 
                 if (stopPlayback == true) {
                     sourceDataLine.stop();
