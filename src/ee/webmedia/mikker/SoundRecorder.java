@@ -14,8 +14,10 @@ import java.util.List;
 
 public class SoundRecorder implements Recorder {
     private ByteArrayOutputStream bout;
-    private Thread thread;
+    private Thread recordingThread;
     private TargetDataLine line;
+
+    private AudioAnalyzer analyzer = null;
 
     private List<RecordingListener> listeners = new ArrayList<RecordingListener>();
     private volatile boolean stopPlayback;
@@ -33,35 +35,21 @@ public class SoundRecorder implements Recorder {
             line.start();
             bout = new ByteArrayOutputStream();
 
-            Thread thread = new Thread() {
-                public void run() {
-                    try {
-                        System.out.println("writing ...");
-                        AudioSystem.write(new AudioInputStream(line), AudioFileFormat.Type.AU, bout);
-                        System.out.println("... done writing");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("thread exiting");
-                }
-            };
-            this.thread = thread;
-            this.thread.start();
+            this.recordingThread = new RecordingThread();
+            this.recordingThread.start();
             
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     private AudioFormat audioFormat() {
         int sampleSize = 16;
         int channels = 1;
         float rate = 44100f;
-        AudioFormat fmt = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, rate, sampleSize, channels,
-                (sampleSize / 8) * channels, rate, true);
 
-        return fmt;
+        return new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, rate, sampleSize, channels,
+                (sampleSize / 8) * channels, rate, true);
     }
 
     public void stopRecording() {
@@ -69,13 +57,14 @@ public class SoundRecorder implements Recorder {
         try {
             line.stop();
             line.close();
-            thread.join();
+            recordingThread.join();
+            recordingThread = null;
 
             System.out.println("... joined");
 
             bout.close();
             System.out.println("... closed");
-            notifyListeners(new RecordingEvent(true, false));
+            notifyListeners(RecordingEvent.recordingFinished());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,7 +83,7 @@ public class SoundRecorder implements Recorder {
 
     public void deleteRecording() {
         this.bout = null;
-        notifyListeners(new RecordingEvent(false, false));
+        notifyListeners(RecordingEvent.recordingDeleted());
     }
 
     public void addListener(RecordingListener deleteButton) {
@@ -140,9 +129,9 @@ public class SoundRecorder implements Recorder {
                             started = true;
                         }
                     }
-                } while(cnt != -1 && stopPlayback == false);
+                } while(cnt != -1 && !stopPlayback);
 
-                if (stopPlayback == true) {
+                if (stopPlayback) {
                     sourceDataLine.stop();
                     sourceDataLine.flush();
                     System.out.println("Stopped: " + System.currentTimeMillis());
@@ -154,10 +143,39 @@ public class SoundRecorder implements Recorder {
                 System.out.println("... finished");
 
                 stopPlayback = false;
-                notifyListeners(new RecordingEvent(true, false));
+                notifyListeners(RecordingEvent.playbackFinished());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+
+    private class RecordingThread extends Thread {
+        public void run() {
+            try {
+                System.out.println("writing ...");
+                // AudioSystem.write(new AudioInputStream(line), AudioFileFormat.Type.AU, bout);
+                int frameSizeInBytes = audioFormat().getFrameSize();
+                int bufferLengthInFrames = line.getBufferSize() / 8;
+                int bufferLengthInBytes = bufferLengthInFrames * frameSizeInBytes;
+                byte[] data = new byte[bufferLengthInBytes];
+                int numBytesRead;
+
+                while (line.isOpen()) {
+                    if((numBytesRead = line.read(data, 0, bufferLengthInBytes)) == -1) {
+                        break;
+                    }
+                    bout.write(data, 0, numBytesRead);
+                    System.out.println("read: " + numBytesRead + ", ");
+
+                    analyzer.analyze(data, numBytesRead);
+                }
+                System.out.println("... done writing");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println("thread exiting");
+        }
+    }
+
 }

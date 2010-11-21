@@ -19,10 +19,12 @@ public class MainWindow extends JFrame {
         add(recordButton);
 
         DeleteButton deleteButton = new DeleteButton(soundRecorder);
+        deleteButton.setToolTipText("Clear the recorded clip");
         soundRecorder.addListener(deleteButton);
         add(deleteButton);
 
         SaveButton saveButton = new SaveButton(soundRecorder);
+        saveButton.setToolTipText("Upload the recorded clip");
         soundRecorder.addListener(saveButton);
         add(saveButton);
 

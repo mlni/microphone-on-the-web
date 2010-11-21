@@ -5,6 +5,7 @@ import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +16,8 @@ public class RecordButton extends JButton implements RecordingListener {
     private boolean playing = false;
 
     private ActionListener current = null;
+
+    private volatile int level = 0;
 
     public RecordButton(Recorder recorder) {
         super();
@@ -40,7 +43,46 @@ public class RecordButton extends JButton implements RecordingListener {
     private void resetRecordButton() {
         recording = false;
         playing = false;
-        setIcon(new Icons().getRecordIcon());
+
+        new Thread() {
+            public void run() {
+                while(true)
+                for (int i = 0; i<200; i++) {
+                    level = Math.abs(i - 100);
+                    try {
+                        Thread.sleep(30);
+                    } catch (InterruptedException e) {
+                        break;
+                    }
+                    if (i % 10 == 0) {
+                        repaint();
+                    }
+                }
+            }
+        }.start();
+
+        final ImageIcon icon = new Icons().getRecordIcon();
+
+        setIcon(new Icon() {
+            public void paintIcon(Component component, Graphics graphics, int x, int y) {
+                int iconHeight = icon.getIconHeight();
+                int levelHeight = (int) ((level / 100f) * iconHeight);
+                
+                icon.paintIcon(component, graphics, x, y);
+
+                graphics.setColor(new Color(0xaa, 0, 0, 127));
+                graphics.fillRect(x, y, icon.getIconWidth(), levelHeight);
+            }
+
+            public int getIconWidth() {
+                return icon.getIconWidth();
+            }
+
+            public int getIconHeight() {
+                return icon.getIconHeight();
+            }
+        });
+
         replaceActionListener(new RecordingActionListener());
     }
 
