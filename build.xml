@@ -1,0 +1,10 @@
+<project>
+    <target name="jar">
+        <mkdir dir="target" />
+        <javac srcdir="src" destdir="target" source="1.5" target="1.5"></javac>
+
+        <jar jarfile="recorder.jar">
+            <fileset dir="target" />
+        </jar>
+    </target>
+</project>

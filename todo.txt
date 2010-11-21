@@ -1,0 +1,9 @@
+Okay, todo driven development
+
+* create a gui with one button
+* make the button start-stop recording
+* stuff the recorded audio into in-memory zip
+* add replay of the audio
+* wrap the gui into an applet
+* test with web page to see if the concept could work
+
