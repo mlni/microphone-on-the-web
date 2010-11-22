@@ -1,14 +1,17 @@
 <project name="Mikrofoni applet" default="jar">
     <target name="jar">
         <mkdir dir="target" />
+        <mkdir dir="dist" />
+        
         <javac srcdir="src" destdir="target" source="1.5" target="1.5"></javac>
 
-        <jar jarfile="recorder.jar">
+        <jar jarfile="dist/recorder.jar">
             <fileset dir="target" />
             <fileset dir="src" />
         </jar>
 
-        <signjar jar="recorder.jar" signedjar="recorder-signed.jar"
+        <signjar jar="dist/recorder.jar" signedjar="dist/recorder-signed.jar"
                 keystore="etc/matti-jagula.keystore" storepass="changeit" alias="mykey" />
+        <copy file="index.html" todir="dist" />
     </target>
 </project>
