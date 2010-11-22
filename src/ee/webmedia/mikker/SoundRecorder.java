@@ -22,12 +22,14 @@ public class SoundRecorder implements Recorder {
     private List<RecordingListener> listeners = new ArrayList<RecordingListener>();
     private volatile boolean stopPlayback;
 
-    public void startRecording() {
+    public void startRecording(AudioLevelListener levelListener) {
         System.out.println("start");
 
         try {
             AudioFormat format = audioFormat();
-            
+
+            analyzer = new AudioAnalyzer(format, levelListener);
+
             DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
             line = (TargetDataLine) AudioSystem.getLine(info);
             line.open(format);
@@ -166,7 +168,6 @@ public class SoundRecorder implements Recorder {
                         break;
                     }
                     bout.write(data, 0, numBytesRead);
-                    System.out.println("read: " + numBytesRead + ", ");
 
                     analyzer.analyze(data, numBytesRead);
                 }

@@ -1,5 +1,6 @@
 package ee.webmedia.mikker.ui;
 
+import ee.webmedia.mikker.AudioLevelListener;
 import ee.webmedia.mikker.Recorder;
 import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;
@@ -27,11 +28,17 @@ public class RecordButton extends JButton implements RecordingListener {
     }
 
     public void onRecordingEvent(RecordingEvent event) {
+        if (playing) {
+            if (!event.isPlaying()) {
+                resetPlayButton();
+            }
+            if (!event.isRecordingAvailable()) {
+                recorder.stopPlaying();
+                playing = false;
+            }
+        }
         if (!event.isRecordingAvailable()) {
             resetRecordButton();
-        }
-        if (playing && !event.isPlaying()) {
-            resetPlayButton();
         }
     }
 
@@ -44,44 +51,7 @@ public class RecordButton extends JButton implements RecordingListener {
         recording = false;
         playing = false;
 
-        new Thread() {
-            public void run() {
-                while(true)
-                for (int i = 0; i<200; i++) {
-                    level = Math.abs(i - 100);
-                    try {
-                        Thread.sleep(30);
-                    } catch (InterruptedException e) {
-                        break;
-                    }
-                    if (i % 10 == 0) {
-                        repaint();
-                    }
-                }
-            }
-        }.start();
-
-        final ImageIcon icon = new Icons().getRecordIcon();
-
-        setIcon(new Icon() {
-            public void paintIcon(Component component, Graphics graphics, int x, int y) {
-                int iconHeight = icon.getIconHeight();
-                int levelHeight = (int) ((level / 100f) * iconHeight);
-                
-                icon.paintIcon(component, graphics, x, y);
-
-                graphics.setColor(new Color(0xaa, 0, 0, 127));
-                graphics.fillRect(x, y, icon.getIconWidth(), levelHeight);
-            }
-
-            public int getIconWidth() {
-                return icon.getIconWidth();
-            }
-
-            public int getIconHeight() {
-                return icon.getIconHeight();
-            }
-        });
+        setIcon(new Icons().getRecordIcon());
 
         replaceActionListener(new RecordingActionListener());
     }
@@ -96,9 +66,15 @@ public class RecordButton extends JButton implements RecordingListener {
     private class RecordingActionListener implements ActionListener {
         public void actionPerformed(ActionEvent actionEvent) {
             if (!recording) {
-                recorder.startRecording();
+                recorder.startRecording(new AudioLevelListener() {
+                    public void onLevelChange(int level) {
+                        System.out.println("level: " + level);
+                        RecordButton.this.level = level;
+                        RecordButton.this.repaint();
+                    }
+                });
                 recording = true;
-                setIcon(new Icons().getStopIcon());
+                setIcon(new LevelDisplayingIcon(new Icons().getStopIcon()));
             } else {
                 recorder.stopRecording();
                 recording = false;
@@ -117,6 +93,33 @@ public class RecordButton extends JButton implements RecordingListener {
                 setIcon(new Icons().getStopIcon());
                 playing = true;
             }
+        }
+    }
+
+    private class LevelDisplayingIcon implements Icon {
+        private final ImageIcon icon;
+
+        public LevelDisplayingIcon(ImageIcon icon) {
+            this.icon = icon;
+        }
+
+        public void paintIcon(Component component, Graphics graphics, int x, int y) {
+            int iconHeight = icon.getIconHeight();
+            int levelHeight = (int) ((level / 100f) * iconHeight);
+
+            icon.paintIcon(component, graphics, x, y);
+
+            graphics.setColor(new Color(0xaa, 0, 0, 127));
+
+            graphics.fillRect(x, y + (iconHeight - levelHeight), icon.getIconWidth(), levelHeight);
+        }
+
+        public int getIconWidth() {
+            return icon.getIconWidth();
+        }
+
+        public int getIconHeight() {
+            return icon.getIconHeight();
         }
     }
 }

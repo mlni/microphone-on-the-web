@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public interface Recorder {
-    void startRecording();
+    void startRecording(AudioLevelListener listener);
     void stopRecording();
 
     void startPlaying();

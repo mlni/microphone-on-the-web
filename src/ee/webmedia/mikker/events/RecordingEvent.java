@@ -32,4 +32,7 @@ public class RecordingEvent {
     public boolean isPlaying() {
         return playing;
     }
+    public String toString() {
+        return "RecordingEvent(" + recorded + "," + playing + ")";
+    }
 }

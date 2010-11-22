@@ -4,54 +4,41 @@ import javax.sound.sampled.AudioFormat;
 
 public class AudioAnalyzer {
     private AudioFormat format;
+    private AudioLevelListener listener;
+    private final Converter converter;
 
     private int lastMin = Integer.MAX_VALUE;
     private int lastMax = Integer.MIN_VALUE;
 
-    private int max = Integer.MIN_VALUE;
-    private int min = Integer.MAX_VALUE;
+    final private int max;
+    final private int min;
 
-    public AudioAnalyzer(AudioFormat format) {
+    public AudioAnalyzer(AudioFormat format, AudioLevelListener listener) {
         this.format = format;
+        this.listener = listener;
+
+        if (format.getSampleSizeInBits() == 16) {
+            max = 32768;
+            min = -32768;
+            if (format.isBigEndian())
+                converter = new BigEndian16bitConverter();
+            else
+                converter = new SmallEndian16BitConverter();
+        } else {
+            if (format.getEncoding().toString().startsWith("PCM_SIGN")) {
+                max = 127;
+                min = -127;
+                converter = new SignedPCM8BitConverter();
+            } else {
+                max = 255;
+                min = 0;
+                converter = new UnsignedCM8BitConverter();
+            }
+        }
     }
 
     public void analyze(byte[] audioBytes, int end) {
-        int[] audioData = null;
-
-        if (format.getSampleSizeInBits() == 16) {
-             int lengthInSamples = end / 2;
-             audioData = new int[lengthInSamples];
-             if (format.isBigEndian()) {
-                for (int i = 0; i < lengthInSamples; i++) {
-                     /* First byte is MSB (high order) */
-                     int MSB = (int) audioBytes[2*i];
-                     /* Second byte is LSB (low order) */
-                     int LSB = (int) audioBytes[2*i+1];
-                     audioData[i] = MSB << 8 | (255 & LSB);
-                 }
-             } else {
-                 for (int i = 0; i < lengthInSamples; i++) {
-                     /* First byte is LSB (low order) */
-                     int LSB = (int) audioBytes[2*i];
-                     /* Second byte is MSB (high order) */
-                     int MSB = (int) audioBytes[2*i+1];
-                     audioData[i] = MSB << 8 | (255 & LSB);
-                 }
-             }
-         } else if (format.getSampleSizeInBits() == 8) {
-             audioData = new int[end];
-             if (format.getEncoding().toString().startsWith("PCM_SIGN")) {
-                 for (int i = 0; i < end; i++) {
-                     audioData[i] = audioBytes[i];
-                 }
-             } else {
-                 for (int i = 0; i < end; i++) {
-                     audioData[i] = audioBytes[i] - 128;
-                 }
-             }
-        } else {
-            return;
-        }
+        int[] audioData = converter.convertToAudio(audioBytes, end);
 
         lastMin = Integer.MAX_VALUE;
         lastMax = Integer.MIN_VALUE;
@@ -61,7 +48,60 @@ public class AudioAnalyzer {
             lastMax = Math.max(lastMax, anAudioData);
         }
 
-        max = Math.max(max, lastMax);
-        min = Math.min(min, lastMin);
+        int level = (int) 100.0f * lastMax / max; // FIXME: take min into account
+        listener.onLevelChange(level);
+    }
+
+    private interface Converter {
+        int[] convertToAudio(byte audioBytes[], int length);
+    }
+
+    private class BigEndian16bitConverter implements Converter {
+        public int[] convertToAudio(byte[] audioBytes, int length) {
+            int lengthInSamples = length / 2;
+            int[] audioData = new int[lengthInSamples];
+            if (format.isBigEndian()) {
+               for (int i = 0; i < lengthInSamples; i++) {
+                    /* First byte is MSB (high order) */
+                    int MSB = (int) audioBytes[2*i];
+                    /* Second byte is LSB (low order) */
+                    int LSB = (int) audioBytes[2*i+1];
+                    audioData[i] = MSB << 8 | (255 & LSB);
+                }
+            }
+            return audioData;
+        }
+    }
+    private class SmallEndian16BitConverter implements Converter {
+        public int[] convertToAudio(byte[] audioBytes, int length) {
+            int lengthInSamples = length / 2;
+            int[] audioData = new int[lengthInSamples];
+            for (int i = 0; i < lengthInSamples; i++) {
+                /* First byte is LSB (low order) */
+                int LSB = (int) audioBytes[2*i];
+                /* Second byte is MSB (high order) */
+                int MSB = (int) audioBytes[2*i+1];
+                audioData[i] = MSB << 8 | (255 & LSB);
+            }
+            return audioData;
+        }
+    }
+    private class SignedPCM8BitConverter implements Converter {
+        public int[] convertToAudio(byte[] audioBytes, int end) {
+            int[] audioData = new int[end];
+            for (int i = 0; i < end; i++) {
+                audioData[i] = audioBytes[i];
+            }
+            return audioData;
+        }
+    }
+    private class UnsignedCM8BitConverter implements Converter {
+        public int[] convertToAudio(byte[] audioBytes, int end) {
+            int[] audioData = new int[end];
+            for (int i = 0; i < end; i++) {
+                audioData[i] = audioBytes[i] - 128;
+            }
+            return audioData;
+        }
     }
 }
