@@ -4,11 +4,14 @@
     <option name="SCOPE_TYPE" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="refactored">
+    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="refactored level display icon into a separate top-level class&#10;moved deletebutton action listener to mainwindow&#10;made mainwindow transfer focus when track is deleted&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/LevelDisplayingIcon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
     </list>
     <ignored path="mikker.iws" />
@@ -69,42 +72,20 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RecordButton.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="0" selection-start="3020" selection-end="3020" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelDisplayingIcon.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/LevelDisplayingIcon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="87" selection-end="87" vertical-scroll-proportion="0.06391478">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainWindow.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="59" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
+            <state line="33" column="42" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.44740346">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteButton.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java">
+      <file leaf-file-name="SaveButton.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="46" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="38" column="0" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,17 +109,17 @@
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/MemoryTest.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingListener.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/Icons.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/AudioLevelListener.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/Recorder.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/LevelDisplayingIcon.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
       </list>
     </option>
   </component>
@@ -432,6 +413,26 @@
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="true" />
@@ -443,19 +444,19 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39920425" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.3948718" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946082" sideWeight="0.58589745" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4051282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow to" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow from" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -471,7 +472,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added recording level listening&#10;moved level icon into inner class&#10;fixed stopping playback when file deleted&#10;&#10;separated different line analyzers&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored level display icon into a separate top-level class&#10;moved deletebutton action listener to mainwindow&#10;made mainwindow transfer focus when track is deleted&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -486,6 +487,7 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="added static factory methods for events&#10;added tooltips to buttons&#10;change recording from AudioSystem to manual loop&#10;added audio level analyzer&#10;&#10;" />
     <MESSAGE value="Added recording level listening&#10;moved level icon into inner class&#10;fixed stopping playback when file deleted&#10;&#10;separated different line analyzers&#10;&#10;" />
+    <MESSAGE value="refactored level display icon into a separate top-level class&#10;moved deletebutton action listener to mainwindow&#10;made mainwindow transfer focus when track is deleted&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -498,11 +500,6 @@
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="13" selection-start="285" selection-end="285" vertical-scroll-proportion="0.015978696" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="522" selection-end="522" vertical-scroll-proportion="0.25565913" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/Icons.java">
@@ -537,62 +534,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/Recorder.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="230" selection-end="230" vertical-scroll-proportion="0.25233644">
+        <state line="4" column="13" selection-start="83" selection-end="83" vertical-scroll-proportion="0.06566347">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/LevelDisplayingIcon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="43" selection-start="968" selection-end="968" vertical-scroll-proportion="0.55925435">
+        <state line="5" column="13" selection-start="87" selection-end="87" vertical-scroll-proportion="0.06566347">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/Recorder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="9" selection-start="255" selection-end="255" vertical-scroll-proportion="0.17576565">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="0" selection-start="5628" selection-end="5628" vertical-scroll-proportion="2.1571238">
+        <state line="21" column="18" selection-start="567" selection-end="567" vertical-scroll-proportion="0.18242344">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="81" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.36751">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="46" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="59" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
+        <state line="7" column="18" selection-start="211" selection-end="211" vertical-scroll-proportion="0.111850865">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="0" selection-start="3020" selection-end="3020" vertical-scroll-proportion="0.0">
+        <state line="19" column="18" selection-start="562" selection-end="562" vertical-scroll-proportion="0.19174434">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/LevelDisplayingIcon.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="87" selection-end="87" vertical-scroll-proportion="0.06391478">
+        <state line="8" column="0" selection-start="230" selection-end="230" vertical-scroll-proportion="0.12782957">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="42" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.44740346">
           <folding />
         </state>
       </provider>

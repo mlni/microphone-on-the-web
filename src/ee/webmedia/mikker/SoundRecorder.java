@@ -19,7 +19,7 @@ public class SoundRecorder implements Recorder {
 
     private AudioAnalyzer analyzer = null;
 
-    private List<RecordingListener> listeners = new ArrayList<RecordingListener>();
+    private final List<RecordingListener> listeners = new ArrayList<RecordingListener>();
     private volatile boolean stopPlayback;
 
     public void startRecording(AudioLevelListener levelListener) {

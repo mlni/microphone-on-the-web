@@ -1,18 +1,15 @@
 package ee.webmedia.mikker.ui;
 
-import ee.webmedia.mikker.Recorder;
 import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;
 
 import javax.swing.*;
 
 public class DeleteButton extends JButton implements RecordingListener {
-    private Recorder recorder;
-
-    public DeleteButton(Recorder soundRecorder) {
+    public DeleteButton() {
         super(new Icons().getDeleteIcon());
-        this.recorder = soundRecorder;
 
+        setToolTipText("Clear the recorded clip");
         setEnabled(false);
     }
     

@@ -20,7 +20,7 @@ public class MainWindow extends JFrame {
         soundRecorder.addListener(recordButton);
         add(recordButton);
 
-        DeleteButton deleteButton = new DeleteButton(soundRecorder);
+        DeleteButton deleteButton = new DeleteButton();
         deleteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 soundRecorder.deleteRecording();
@@ -28,12 +28,10 @@ public class MainWindow extends JFrame {
             }
         });
 
-        deleteButton.setToolTipText("Clear the recorded clip");
         soundRecorder.addListener(deleteButton);
         add(deleteButton);
 
         SaveButton saveButton = new SaveButton(soundRecorder);
-        saveButton.setToolTipText("Upload the recorded clip");
         soundRecorder.addListener(saveButton);
         add(saveButton);
 

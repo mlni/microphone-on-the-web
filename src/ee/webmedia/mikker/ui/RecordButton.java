@@ -10,14 +10,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RecordButton extends JButton implements RecordingListener {
-    private Recorder recorder;
+    private final Recorder recorder;
 
     private boolean recording = false;
     private boolean playing = false;
 
     private ActionListener current = null;
 
-    private LevelDisplayingIcon levelDisplayingIcon;
+    private final LevelDisplayingIcon levelDisplayingIcon;
 
     public RecordButton(Recorder recorder) {
         super();

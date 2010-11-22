@@ -3,12 +3,9 @@ package ee.webmedia.mikker;
 import javax.sound.sampled.AudioFormat;
 
 public class AudioAnalyzer {
-    private AudioFormat format;
-    private AudioLevelListener listener;
+    private final AudioFormat format;
+    private final AudioLevelListener listener;
     private final Converter converter;
-
-    private int lastMin = Integer.MAX_VALUE;
-    private int lastMax = Integer.MIN_VALUE;
 
     final private int max;
     final private int min;
@@ -40,8 +37,8 @@ public class AudioAnalyzer {
     public void analyze(byte[] audioBytes, int end) {
         int[] audioData = converter.convertToAudio(audioBytes, end);
 
-        lastMin = Integer.MAX_VALUE;
-        lastMax = Integer.MIN_VALUE;
+        int lastMin = Integer.MAX_VALUE;
+        int lastMax = Integer.MIN_VALUE;
 
         for (int anAudioData : audioData) {
             lastMin = Math.min(lastMin, anAudioData);

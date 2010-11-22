@@ -4,8 +4,8 @@ package ee.webmedia.mikker.events;
  * Notify interested parties about events that happened during or after recording.
  */
 public class RecordingEvent {
-    private boolean recorded;
-    private boolean playing;
+    private final boolean recorded;
+    private final boolean playing;
 
     /* Private, use through factory methods */
     private RecordingEvent(boolean recordingAvailable, boolean playing) {

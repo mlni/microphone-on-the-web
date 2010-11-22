@@ -11,13 +11,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class SaveButton extends JButton implements ActionListener, RecordingListener {
-    private Recorder recorder;
+    private final Recorder recorder;
 
     public SaveButton(Recorder recorder) {
         super(new Icons().getSaveIcon());
         this.recorder = recorder;
-        addActionListener(this);
+        setToolTipText("Upload the recorded clip");
         setEnabled(false);
+
+        addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
