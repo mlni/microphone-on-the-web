@@ -1,4 +1,4 @@
-package ee.webmedia.mikker;
+package ee.webmedia.mikker.recorder;
 
 import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;

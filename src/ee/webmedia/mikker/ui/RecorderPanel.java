@@ -1,6 +1,6 @@
 package ee.webmedia.mikker.ui;
 
-import ee.webmedia.mikker.SoundRecorder;
+import ee.webmedia.mikker.recorder.SoundRecorder;
 
 import javax.swing.*;
 import java.awt.*;

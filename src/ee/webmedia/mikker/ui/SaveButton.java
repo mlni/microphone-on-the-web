@@ -1,6 +1,6 @@
 package ee.webmedia.mikker.ui;
 
-import ee.webmedia.mikker.Recorder;
+import ee.webmedia.mikker.recorder.Recorder;
 import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;
 

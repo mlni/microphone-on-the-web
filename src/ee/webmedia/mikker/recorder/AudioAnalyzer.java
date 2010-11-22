@@ -1,4 +1,4 @@
-package ee.webmedia.mikker;
+package ee.webmedia.mikker.recorder;
 
 import javax.sound.sampled.AudioFormat;
 
