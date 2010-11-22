@@ -6,7 +6,6 @@ import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,11 +17,12 @@ public class RecordButton extends JButton implements RecordingListener {
 
     private ActionListener current = null;
 
-    private volatile int level = 0;
+    private LevelDisplayingIcon levelDisplayingIcon;
 
     public RecordButton(Recorder recorder) {
         super();
         this.recorder = recorder;
+        this.levelDisplayingIcon = new LevelDisplayingIcon(new Icons().getStopIcon());
 
         resetRecordButton();
     }
@@ -63,18 +63,22 @@ public class RecordButton extends JButton implements RecordingListener {
         addActionListener(current);
     }
 
+    private void displayLevel(int level) {
+        levelDisplayingIcon.displayLevel(level);
+        repaint();
+    }
+    
     private class RecordingActionListener implements ActionListener {
         public void actionPerformed(ActionEvent actionEvent) {
             if (!recording) {
                 recorder.startRecording(new AudioLevelListener() {
                     public void onLevelChange(int level) {
                         System.out.println("level: " + level);
-                        RecordButton.this.level = level;
-                        RecordButton.this.repaint();
+                        displayLevel(level);
                     }
                 });
                 recording = true;
-                setIcon(new LevelDisplayingIcon(new Icons().getStopIcon()));
+                setIcon(levelDisplayingIcon);
             } else {
                 recorder.stopRecording();
                 recording = false;
@@ -82,6 +86,7 @@ public class RecordButton extends JButton implements RecordingListener {
                 replaceActionListener(new ReplayingActionListener());
             }
         }
+
     }
 
     private class ReplayingActionListener implements ActionListener {
@@ -96,30 +101,4 @@ public class RecordButton extends JButton implements RecordingListener {
         }
     }
 
-    private class LevelDisplayingIcon implements Icon {
-        private final ImageIcon icon;
-
-        public LevelDisplayingIcon(ImageIcon icon) {
-            this.icon = icon;
-        }
-
-        public void paintIcon(Component component, Graphics graphics, int x, int y) {
-            int iconHeight = icon.getIconHeight();
-            int levelHeight = (int) ((level / 100f) * iconHeight);
-
-            icon.paintIcon(component, graphics, x, y);
-
-            graphics.setColor(new Color(0xaa, 0, 0, 127));
-
-            graphics.fillRect(x, y + (iconHeight - levelHeight), icon.getIconWidth(), levelHeight);
-        }
-
-        public int getIconWidth() {
-            return icon.getIconWidth();
-        }
-
-        public int getIconHeight() {
-            return icon.getIconHeight();
-        }
-    }
 }

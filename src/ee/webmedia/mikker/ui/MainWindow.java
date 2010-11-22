@@ -4,6 +4,8 @@ import ee.webmedia.mikker.SoundRecorder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame {
     public MainWindow() {
@@ -19,6 +21,13 @@ public class MainWindow extends JFrame {
         add(recordButton);
 
         DeleteButton deleteButton = new DeleteButton(soundRecorder);
+        deleteButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                soundRecorder.deleteRecording();
+                MainWindow.this.transferFocus();
+            }
+        });
+
         deleteButton.setToolTipText("Clear the recorded clip");
         soundRecorder.addListener(deleteButton);
         add(deleteButton);

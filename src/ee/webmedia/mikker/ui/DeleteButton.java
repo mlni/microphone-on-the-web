@@ -5,8 +5,6 @@ import ee.webmedia.mikker.events.RecordingEvent;
 import ee.webmedia.mikker.events.RecordingListener;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DeleteButton extends JButton implements RecordingListener {
     private Recorder recorder;
@@ -16,12 +14,6 @@ public class DeleteButton extends JButton implements RecordingListener {
         this.recorder = soundRecorder;
 
         setEnabled(false);
-
-        addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                recorder.deleteRecording();
-            }
-        });
     }
     
     public void onRecordingEvent(RecordingEvent event) {
