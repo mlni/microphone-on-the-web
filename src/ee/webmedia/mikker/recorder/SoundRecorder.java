@@ -19,10 +19,14 @@ public class SoundRecorder implements Recorder {
     private final List<RecordingListener> listeners = new ArrayList<RecordingListener>();
     private volatile boolean stopPlayback;
 
+    private long start;
+
     public void startRecording(AudioLevelListener levelListener) {
         System.out.println("start");
 
         try {
+            start = System.currentTimeMillis();
+
             AudioFormat format = audioFormat();
 
             analyzer = new AudioAnalyzer(format, levelListener);
@@ -52,17 +56,16 @@ public class SoundRecorder implements Recorder {
     }
 
     public void stopRecording() {
-        System.out.println("stop");
         try {
             line.stop();
             line.close();
             recordingThread.join();
             recordingThread = null;
 
-            System.out.println("... joined");
-
             bout.close();
-            System.out.println("... closed");
+            System.out.println("... closed. duration: " + (System.currentTimeMillis() - start));
+            System.out.println("size: " + bout.toByteArray().length);
+            System.out.println("memory: " + Runtime.getRuntime().freeMemory());
             notifyListeners(RecordingEvent.recordingFinished());
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,7 +74,6 @@ public class SoundRecorder implements Recorder {
 
     public void stopPlaying() {
         stopPlayback = true;
-        System.out.println("Stopped: " + System.currentTimeMillis());
     }
 
     public void startPlaying() {
@@ -133,7 +135,6 @@ public class SoundRecorder implements Recorder {
                 if (stopPlayback) {
                     sourceDataLine.stop();
                     sourceDataLine.flush();
-                    System.out.println("Stopped: " + System.currentTimeMillis());
                 } else {
                     sourceDataLine.drain();
                 }

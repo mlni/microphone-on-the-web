@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/RecordingEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingListener.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/RecordingListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
     </list>
     <ignored path="mikker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,7 +75,7 @@
       <file leaf-file-name="SoundRecorder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="823" selection-end="823" vertical-scroll-proportion="0.6168224">
+            <state line="65" column="93" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.6551265">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,10 +108,10 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/Icons.java" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" />
       </list>
     </option>
@@ -421,7 +417,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946082" sideWeight="0.58589745" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4051282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4051282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow to" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -442,7 +438,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved recording related objects to recorder/" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved recording events to recorder/" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -462,6 +458,7 @@
     <MESSAGE value="extracted recording panel from main window&#10;made applet use recording panel&#10;moved icons to src/&#10;" />
     <MESSAGE value="moved jars to dist/" />
     <MESSAGE value="moved recording related objects to recorder/" />
+    <MESSAGE value="moved recording events to recorder/" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -577,7 +574,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.09587217">
+        <state line="13" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="0.20772304">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -586,7 +583,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="823" selection-end="823" vertical-scroll-proportion="0.6168224">
+        <state line="65" column="93" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.6551265">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
