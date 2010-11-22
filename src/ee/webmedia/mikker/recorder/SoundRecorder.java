@@ -1,8 +1,6 @@
 package ee.webmedia.mikker.recorder;
 
 import javax.sound.sampled.*;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -10,7 +8,7 @@ import java.util.List;
 
 
 public class SoundRecorder implements Recorder {
-    private ByteArrayOutputStream bout;
+    private InMemoryAudioStream out;
     private Thread recordingThread;
     private TargetDataLine line;
 
@@ -36,7 +34,7 @@ public class SoundRecorder implements Recorder {
             line.open(format);
 
             line.start();
-            bout = new ByteArrayOutputStream();
+            out = new InMemoryAudioStream();
 
             this.recordingThread = new RecordingThread();
             this.recordingThread.start();
@@ -62,9 +60,9 @@ public class SoundRecorder implements Recorder {
             recordingThread.join();
             recordingThread = null;
 
-            bout.close();
-            System.out.println("... closed. duration: " + (System.currentTimeMillis() - start));
-            System.out.println("size: " + bout.toByteArray().length);
+            out.close();
+            System.out.println("stopped. duration: " + (System.currentTimeMillis() - start));
+            System.out.println("length: " + out.length() + ", size: " + out.bytes().length);
             System.out.println("memory: " + Runtime.getRuntime().freeMemory());
             notifyListeners(RecordingEvent.recordingFinished());
         } catch (Exception e) {
@@ -83,7 +81,7 @@ public class SoundRecorder implements Recorder {
     }
 
     public void deleteRecording() {
-        this.bout = null;
+        this.out = null;
         notifyListeners(RecordingEvent.recordingDeleted());
     }
 
@@ -98,14 +96,13 @@ public class SoundRecorder implements Recorder {
     }
 
     public void writeResult(OutputStream out) throws IOException {
-        out.write(bout.toByteArray());
+        out.write(this.out.bytes());
     }
 
     private class ReplayThread extends Thread {
         public void run() {
             try {
-                byte[] bytes = bout.toByteArray();
-                AudioInputStream audioInputStream = new AudioInputStream(new ByteArrayInputStream(bytes), audioFormat(), bytes.length);
+                AudioInputStream audioInputStream = new AudioInputStream(out.toInputStream(), audioFormat(), out.length());
                 AudioFormat audioFormat = audioInputStream.getFormat();
 
                 DataLine.Info dataLineInfo = new DataLine.Info(SourceDataLine.class, audioFormat);
@@ -154,7 +151,7 @@ public class SoundRecorder implements Recorder {
         public void run() {
             try {
                 System.out.println("writing ...");
-                // AudioSystem.write(new AudioInputStream(line), AudioFileFormat.Type.AU, bout);
+                // AudioSystem.write(new AudioInputStream(line), AudioFileFormat.Type.AU, out);
                 int frameSizeInBytes = audioFormat().getFrameSize();
                 int bufferLengthInFrames = line.getBufferSize() / 8;
                 int bufferLengthInBytes = bufferLengthInFrames * frameSizeInBytes;
@@ -165,7 +162,7 @@ public class SoundRecorder implements Recorder {
                     if((numBytesRead = line.read(data, 0, bufferLengthInBytes)) == -1) {
                         break;
                     }
-                    bout.write(data, 0, numBytesRead);
+                    out.write(data, 0, numBytesRead);
 
                     analyzer.analyze(data, numBytesRead);
                 }
