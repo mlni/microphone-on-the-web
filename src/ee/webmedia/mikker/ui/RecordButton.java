@@ -2,8 +2,8 @@ package ee.webmedia.mikker.ui;
 
 import ee.webmedia.mikker.recorder.AudioLevelListener;
 import ee.webmedia.mikker.recorder.Recorder;
-import ee.webmedia.mikker.events.RecordingEvent;
-import ee.webmedia.mikker.events.RecordingListener;
+import ee.webmedia.mikker.recorder.RecordingEvent;
+import ee.webmedia.mikker.recorder.RecordingListener;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

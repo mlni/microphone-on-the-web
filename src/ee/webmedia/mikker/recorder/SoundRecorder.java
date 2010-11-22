@@ -1,8 +1,5 @@
 package ee.webmedia.mikker.recorder;
 
-import ee.webmedia.mikker.events.RecordingEvent;
-import ee.webmedia.mikker.events.RecordingListener;
-
 import javax.sound.sampled.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
