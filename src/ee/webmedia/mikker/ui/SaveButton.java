@@ -3,19 +3,24 @@ package ee.webmedia.mikker.ui;
 import ee.webmedia.mikker.recorder.Recorder;
 import ee.webmedia.mikker.recorder.RecordingEvent;
 import ee.webmedia.mikker.recorder.RecordingListener;
+import ee.webmedia.mikker.recorder.SoundRecorder;
+import ee.webmedia.mikker.upload.Uploader;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class SaveButton extends JButton implements ActionListener, RecordingListener {
     private final Recorder recorder;
+    private final String url;
 
-    public SaveButton(Recorder recorder) {
+    public SaveButton(SoundRecorder soundRecorder, String uploadUrl) {
         super(new Icons().getSaveIcon());
-        this.recorder = recorder;
+
+        this.recorder = soundRecorder;
+        this.url = uploadUrl;
+
         setToolTipText("Upload the recorded clip");
         setEnabled(false);
 
@@ -24,9 +29,8 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
     public void actionPerformed(ActionEvent actionEvent) {
         try {
-            FileOutputStream out = new FileOutputStream("result.au");
-            recorder.writeResult(out);
-            System.out.println("Wrote file");
+            new Uploader(url).upload("result.zip", "application/zip", recorder.getRecording());
+            System.out.println("Uploaded file");
         } catch (IOException e) {
             e.printStackTrace();
         }

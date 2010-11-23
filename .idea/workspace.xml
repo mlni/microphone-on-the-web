@@ -6,10 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/DelegatingAudioInputStream.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/Recorder.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/Recorder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/UploadTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/AudioAnalyzer.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/AudioAnalyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
     </list>
-    <ignored path="mikker.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path="mikker.iws" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +80,60 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RecordButton.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java">
+      <file leaf-file-name="Uploader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="56" selection-start="2589" selection-end="2589" vertical-scroll-proportion="1.3422104">
+            <state line="29" column="44" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/UploadTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="35" selection-start="2894" selection-end="2937" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecorderPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="51" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoundRecorder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="144" column="13" selection-start="4566" selection-end="4566" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaveButton.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="41" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.51131827">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AudioAnalyzer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/AudioAnalyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="17" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,22 +152,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/Recorder.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/LevelDisplayingIcon.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/AudioAnalyzer.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/events/RecordingEvent.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/Icons.java" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/SoundRecorder.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/InMemoryAudioStream.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/UploadTest.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/Recorder.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/AudioAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/DelegatingAudioInputStream.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java" />
       </list>
     </option>
   </component>
@@ -150,7 +206,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -198,6 +254,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mikker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mikker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mikker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mikker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,7 +348,7 @@
         </subPane>
       </pane>
       <pane id="Favorites" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -412,9 +490,27 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="UploadTest" type="Application" factoryName="Application">
+      <extension name="snapshooter" />
+      <option name="MAIN_CLASS_NAME" value="ee.webmedia.mikker.exploration.UploadTest" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="mikker" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.MemTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.UploadTest" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -476,18 +572,18 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.3948718" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.41153845" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39971244" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946082" sideWeight="0.58589745" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4051282" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow to" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow from" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -503,7 +599,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="separated the audio stream into separate file&#10;changed to use zipped audio stream" />
+    <option name="LAST_COMMIT_MESSAGE" value="added max recording duration" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -526,6 +622,7 @@
     <MESSAGE value="moved recording events to recorder/" />
     <MESSAGE value="added timing information" />
     <MESSAGE value="separated the audio stream into separate file&#10;changed to use zipped audio stream" />
+    <MESSAGE value="added max recording duration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -535,124 +632,96 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/DeleteButton.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/InMemoryAudioStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="230" selection-end="230" vertical-scroll-proportion="0.12782957">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="46" column="22" selection-start="1335" selection-end="1335" vertical-scroll-proportion="0.73502" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/MemoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="219" selection-end="219" vertical-scroll-proportion="0.06391478" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="38" selection-start="445" selection-end="445" vertical-scroll-proportion="0.19174434" />
+      </provider>
+    </entry>
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar!/java/io/DataOutputStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="11" selection-start="338" selection-end="342" vertical-scroll-proportion="0.14380826" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/Recorder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="17" selection-start="104" selection-end="104" vertical-scroll-proportion="0.06391478">
-          <folding />
-        </state>
+        <state line="11" column="0" selection-start="226" selection-end="226" vertical-scroll-proportion="0.17576565" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="10" selection-start="592" selection-end="592" vertical-scroll-proportion="0.2626539">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/Icons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="69" selection-start="775" selection-end="775" vertical-scroll-proportion="0.3515313">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="60" selection-start="273" selection-end="273" vertical-scroll-proportion="0.14774282">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="297" selection-end="297" vertical-scroll-proportion="0.09587217">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="331" selection-end="331" vertical-scroll-proportion="0.20772304" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="0.25565913">
-          <folding />
-        </state>
+        <state line="8" column="74" selection-start="234" selection-end="234" vertical-scroll-proportion="0.12782957" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java">
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar!/javax/sound/sampled/AudioSystem.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="29" selection-start="811" selection-end="811" vertical-scroll-proportion="0.38348868">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="68" column="22" selection-start="5290" selection-end="5295" vertical-scroll-proportion="0.52717394" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.47936085">
+        <state line="29" column="44" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/UploadTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="35" selection-start="2894" selection-end="2937" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar!/javax/sound/sampled/AudioInputStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="11" selection-start="716" selection-end="716" vertical-scroll-proportion="0.29347825">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/AudioAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="83" selection-end="83" vertical-scroll-proportion="0.06391478">
+        <state line="73" column="17" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/DelegatingAudioInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="93" selection-start="292" selection-end="292" vertical-scroll-proportion="0.08207934">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="50" selection-start="4704" selection-end="4704" vertical-scroll-proportion="2.1344874">
+        <state line="144" column="13" selection-start="4566" selection-end="4566" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/RecordingEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.07989348">
+        <state line="31" column="51" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/SaveButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.09587217">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/InMemoryAudioStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="22" selection-start="1335" selection-end="1335" vertical-scroll-proportion="0.73502">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/MemoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="219" selection-end="219" vertical-scroll-proportion="0.06391478">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecordButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="56" selection-start="2589" selection-end="2589" vertical-scroll-proportion="1.3422104">
+        <state line="32" column="41" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.51131827">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

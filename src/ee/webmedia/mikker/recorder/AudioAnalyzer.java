@@ -34,8 +34,15 @@ public class AudioAnalyzer {
         }
     }
 
-    public void analyze(byte[] audioBytes, int end) {
-        int[] audioData = converter.convertToAudio(audioBytes, end);
+    public void analyze(byte[] audioBytes, int offset, int count) {
+        int[] audioData = null;
+        if (offset == 0) {
+            audioData = converter.convertToAudio(audioBytes, count);
+        } else {
+            byte bytes[] = new byte[(count - offset)];
+            System.arraycopy(bytes, 0, audioBytes, offset, count);
+            audioData = converter.convertToAudio(bytes, count - offset);
+        }
 
         int lastMin = Integer.MAX_VALUE;
         int lastMax = Integer.MIN_VALUE;

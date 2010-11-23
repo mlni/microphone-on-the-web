@@ -2,7 +2,6 @@ package ee.webmedia.mikker.recorder;
 
 import javax.sound.sampled.*;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,6 +84,10 @@ public class SoundRecorder implements Recorder {
         notifyListeners(RecordingEvent.recordingDeleted());
     }
 
+    public byte[] getRecording() {
+        return out.bytes();
+    }
+
     public void addListener(RecordingListener deleteButton) {
         listeners.add(deleteButton);
     }
@@ -93,10 +96,6 @@ public class SoundRecorder implements Recorder {
         for (RecordingListener l : listeners) {
             l.onRecordingEvent(event);
         }
-    }
-
-    public void writeResult(OutputStream out) throws IOException {
-        out.write(this.out.bytes());
     }
 
     private class ReplayThread extends Thread {
@@ -151,21 +150,17 @@ public class SoundRecorder implements Recorder {
         public void run() {
             try {
                 System.out.println("writing ...");
-                // AudioSystem.write(new AudioInputStream(line), AudioFileFormat.Type.AU, out);
-                int frameSizeInBytes = audioFormat().getFrameSize();
-                int bufferLengthInFrames = line.getBufferSize() / 8;
-                int bufferLengthInBytes = bufferLengthInFrames * frameSizeInBytes;
-                byte[] data = new byte[bufferLengthInBytes];
-                int numBytesRead;
 
-                while (line.isOpen()) {
-                    if((numBytesRead = line.read(data, 0, bufferLengthInBytes)) == -1) {
-                        break;
+                AudioInputStream actual = new AudioInputStream(line);
+                DelegatingAudioInputStream sniffer = new DelegatingAudioInputStream(actual, line) {
+                    @Override
+                    public int read(byte[] bytes, int offset, int count) throws IOException {
+                        analyzer.analyze(bytes, offset, count);
+                        return super.read(bytes, offset, count);
                     }
-                    out.write(data, 0, numBytesRead);
+                };
 
-                    analyzer.analyze(data, numBytesRead);
-                }
+                AudioSystem.write(sniffer, AudioFileFormat.Type.AU, out);
                 System.out.println("... done writing");
             } catch (Exception e) {
                 e.printStackTrace();

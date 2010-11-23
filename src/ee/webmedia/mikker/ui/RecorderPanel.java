@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RecorderPanel extends JPanel {
-    public RecorderPanel() {
+    public RecorderPanel(String uploadUrl) {
         setBackground(Color.WHITE);
 
         final SoundRecorder soundRecorder = new SoundRecorder();
@@ -29,7 +29,7 @@ public class RecorderPanel extends JPanel {
         soundRecorder.addListener(deleteButton);
         add(deleteButton);
 
-        SaveButton saveButton = new SaveButton(soundRecorder);
+        SaveButton saveButton = new SaveButton(soundRecorder, uploadUrl);
         soundRecorder.addListener(saveButton);
         add(saveButton);
     }
