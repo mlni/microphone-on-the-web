@@ -10,10 +10,10 @@ public class InMemoryAudioStream extends OutputStream {
     private final ZipOutputStream zipStream;
     private long length = 0;
 
-    public InMemoryAudioStream() throws IOException {
+    public InMemoryAudioStream(String filename) throws IOException {
         byteStream = new ByteArrayOutputStream();
         zipStream = new ZipOutputStream(byteStream);
-        zipStream.putNextEntry(new ZipEntry("result.au"));
+        zipStream.putNextEntry(new ZipEntry(filename));
     }
 
     @Override

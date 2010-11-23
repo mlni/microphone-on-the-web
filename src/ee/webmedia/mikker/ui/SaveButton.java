@@ -13,13 +13,13 @@ import java.io.IOException;
 
 public class SaveButton extends JButton implements ActionListener, RecordingListener {
     private final Recorder recorder;
-    private final String url;
+    private final Uploader uploader;
 
-    public SaveButton(SoundRecorder soundRecorder, String uploadUrl) {
+    public SaveButton(SoundRecorder soundRecorder, Uploader uploader) {
         super(new Icons().getSaveIcon());
 
         this.recorder = soundRecorder;
-        this.url = uploadUrl;
+        this.uploader = uploader;
 
         setToolTipText("Upload the recorded clip");
         setEnabled(false);
@@ -29,7 +29,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
     public void actionPerformed(ActionEvent actionEvent) {
         try {
-            new Uploader(url).upload("result.zip", "application/zip", recorder.getRecording());
+            uploader.upload("result.zip", "application/zip", recorder.getRecording());
             System.out.println("Uploaded file");
         } catch (IOException e) {
             e.printStackTrace();

@@ -78,7 +78,7 @@ public class UploadTest
 //
 //        UploadTest uploader = new UploadTest();
 //        uploader.upload(new URL("http://localhost/~matti/recorder/upload.php"), list);
-        Uploader u = new Uploader("http://localhost/~matti/recorder/upload.php");
+        Uploader u = new Uploader("http://localhost/~matti/recorder/upload.php", "file");
         u.upload("uus.txt", "text/plain", "KALAMAJASURM".getBytes());
     }
 

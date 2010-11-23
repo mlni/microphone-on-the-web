@@ -7,16 +7,22 @@ import java.util.List;
 
 
 public class SoundRecorder implements Recorder {
-    private InMemoryAudioStream out;
-    private Thread recordingThread;
-    private TargetDataLine line;
+    private final String filename;
+    private final List<RecordingListener> listeners = new ArrayList<RecordingListener>();
 
+    private InMemoryAudioStream out;
+
+    private Thread recordingThread;
+
+    private TargetDataLine line;
     private AudioAnalyzer analyzer = null;
 
-    private final List<RecordingListener> listeners = new ArrayList<RecordingListener>();
     private volatile boolean stopPlayback;
-
     private long start;
+
+    public SoundRecorder(String filename) {
+        this.filename = filename;
+    }
 
     public void startRecording(AudioLevelListener levelListener) {
         System.out.println("start");
@@ -33,7 +39,7 @@ public class SoundRecorder implements Recorder {
             line.open(format);
 
             line.start();
-            out = new InMemoryAudioStream();
+            out = new InMemoryAudioStream(filename);
 
             this.recordingThread = new RecordingThread();
             this.recordingThread.start();

@@ -1,6 +1,7 @@
 package ee.webmedia.mikker.ui;
 
 import ee.webmedia.mikker.recorder.SoundRecorder;
+import ee.webmedia.mikker.upload.Uploader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,10 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RecorderPanel extends JPanel {
-    public RecorderPanel(String uploadUrl) {
+    public RecorderPanel(String uploadUrl, String uploadFieldName, String filename) {
         setBackground(Color.WHITE);
 
-        final SoundRecorder soundRecorder = new SoundRecorder();
+        final SoundRecorder soundRecorder = new SoundRecorder(filename);
         setLayout(new FlowLayout());
 
         RecordButton recordButton = new RecordButton(soundRecorder);
@@ -29,7 +30,10 @@ public class RecorderPanel extends JPanel {
         soundRecorder.addListener(deleteButton);
         add(deleteButton);
 
-        SaveButton saveButton = new SaveButton(soundRecorder, uploadUrl);
+
+        Uploader uploader = new Uploader(uploadUrl, uploadFieldName);
+
+        SaveButton saveButton = new SaveButton(soundRecorder, uploader);
         soundRecorder.addListener(saveButton);
         add(saveButton);
     }

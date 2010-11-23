@@ -10,9 +10,11 @@ public class Uploader {
     private static final String BOUNDARY = "--------CAFEBABECAFEBABE--------";
     
     private String url;
+    private String fieldName;
 
-    public Uploader(String url) {
+    public Uploader(String url, String uploadFieldName) {
         this.url = url;
+        this.fieldName = uploadFieldName;
     }
 
     public void upload(String filename, String mime, byte content[]) throws IOException {
@@ -30,7 +32,7 @@ public class Uploader {
         DataOutputStream httpOut = new DataOutputStream(theUrlConnection.getOutputStream());
 
         String str = "--" + BOUNDARY + "\r\n"
-                   + "Content-Disposition: form-data;name=\"file\"; filename=\"" + filename + "\"\r\n"
+                   + "Content-Disposition: form-data;name=\"" + fieldName + "\"; filename=\"" + filename + "\"\r\n"
                    + "Content-Type: " + mime + "\r\n"
                    + "\r\n";
 
