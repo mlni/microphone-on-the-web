@@ -10,20 +10,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RecordButton extends JButton implements RecordingListener {
-    private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
     private final Recorder recorder;
+    private final int maxDuration;
 
     private boolean recording = false;
     private boolean playing = false;
+
     private Timer timer;
-    
+
     private ActionListener current = null;
 
     private final LevelDisplayingIcon levelDisplayingIcon;
 
-    public RecordButton(Recorder recorder) {
+    public RecordButton(Recorder recorder, int maxDuration) {
         super();
         this.recorder = recorder;
+        this.maxDuration = maxDuration;
+
         this.levelDisplayingIcon = new LevelDisplayingIcon(new Icons().getStopIcon());
 
         resetRecordButton();
@@ -82,7 +85,7 @@ public class RecordButton extends JButton implements RecordingListener {
                 recording = true;
                 setIcon(levelDisplayingIcon);
                 
-                timer = new Timer(MAX_RECORDING_DURATION, this);
+                timer = new Timer(maxDuration, this);
                 timer.setRepeats(false);
                 timer.start();
             } else {
