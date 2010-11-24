@@ -16,7 +16,10 @@ public class Icons {
         return loadIcon("icons/dialog-delete.png", "Delete");
     }
     public ImageIcon getSaveIcon() {
-        return loadIcon("icons/document-save-as.png", "Save");
+        return loadIcon("icons/mail-send.png", "Save");
+    }
+    public ImageIcon getOkIcon() {
+        return loadIcon("icons/emblem-ok.png", "OK");
     }
 
     private ImageIcon loadIcon(String path, String label) {

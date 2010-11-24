@@ -35,7 +35,7 @@ public class RecorderPanel extends JPanel {
 
         Uploader uploader = new Uploader(uploadUrl, uploadFieldName);
 
-        SaveButton saveButton = new SaveButton(soundRecorder, uploader);
+        SaveButton saveButton = new SaveButton(soundRecorder, uploader, filename);
         soundRecorder.addListener(saveButton);
         add(saveButton);
     }
