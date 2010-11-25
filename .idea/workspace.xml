@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
-    </list>
+    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="mikker.iws" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -641,7 +637,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="made the url parameter behave logically with both relative and root-relative urls" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the uploader for python apps" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -672,6 +668,7 @@
     <MESSAGE value="changed applet width&#10;fixed build.xml" />
     <MESSAGE value="added ok emblem to save icon" />
     <MESSAGE value="made the url parameter behave logically with both relative and root-relative urls" />
+    <MESSAGE value="fixed the uploader for python apps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
