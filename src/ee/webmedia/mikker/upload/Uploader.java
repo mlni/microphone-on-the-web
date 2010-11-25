@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Uploader {
-    private static final String BOUNDARY = "--------CAFEBABECAFEBABE--------";
+    private static final String BOUNDARY = "----WebKitFormBoundary8NHXoPOgtdmTKB7e";
     
     private String url;
     private String fieldName;
@@ -24,7 +24,6 @@ public class Uploader {
         theUrlConnection.setDoOutput(true);
         theUrlConnection.setDoInput(true);
         theUrlConnection.setUseCaches(false);
-        theUrlConnection.setChunkedStreamingMode(1024);
 
         theUrlConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary="
                 + BOUNDARY);
@@ -32,15 +31,15 @@ public class Uploader {
         DataOutputStream httpOut = new DataOutputStream(theUrlConnection.getOutputStream());
 
         String str = "--" + BOUNDARY + "\r\n"
-                   + "Content-Disposition: form-data;name=\"" + fieldName + "\"; filename=\"" + filename + "\"\r\n"
+                   + "Content-Disposition: form-data; name=\"" + fieldName + "\"; filename=\"" + filename + "\"\r\n"
                    + "Content-Type: " + mime + "\r\n"
                    + "\r\n";
 
         httpOut.write(str.getBytes());
 
         httpOut.write(content);
-        httpOut.write(("--" + BOUNDARY + "--\r\n").getBytes());
-        httpOut.write(("--" + BOUNDARY + "--\r\n").getBytes());
+
+        httpOut.write(("\r\n--" + BOUNDARY + "--\r\n").getBytes());
 
         httpOut.flush();
         httpOut.close();
