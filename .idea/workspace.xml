@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/RecorderPanel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/RequestContext.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/MainWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="mikker.iws" />
@@ -72,10 +70,30 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Configuration.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="24" selection-start="659" selection-end="659" vertical-scroll-proportion="0.38247013">
+            <state line="70" column="68" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CookieParser.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="5" selection-start="689" selection-end="689" vertical-scroll-proportion="0.35059762">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyValuePairParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,7 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/SoundRecorder.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/recorder/InMemoryAudioStream.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/exploration/UploadTest.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/ui/Icons.java" />
@@ -109,10 +126,11 @@
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/RequestContext.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
         <option value="$PROJECT_DIR$/result.html" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" />
       </list>
     </option>
   </component>
@@ -532,7 +550,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="separated configuration into its own class&#10;added parsing and submitting of browser cookies" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed requestcontext -&gt; configuration" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -565,6 +583,7 @@
     <MESSAGE value="made the url parameter behave logically with both relative and root-relative urls" />
     <MESSAGE value="fixed the uploader for python apps" />
     <MESSAGE value="separated configuration into its own class&#10;added parsing and submitting of browser cookies" />
+    <MESSAGE value="renamed requestcontext -&gt; configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -624,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.4761255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="35" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.38753387">
@@ -672,10 +684,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="24" selection-start="659" selection-end="659" vertical-scroll-proportion="0.38247013">
+        <state line="70" column="68" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="5" selection-start="689" selection-end="689" vertical-scroll-proportion="0.35059762">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -10,20 +10,11 @@ public class CookieParser {
     }
 
     private HashMap<String, Cookie> parseCookies(String cookies) {
+        KeyValuePairParser.Pair pairs[] = new KeyValuePairParser(cookies).getPairs();
+
         HashMap<String, Cookie> result = new HashMap<String, Cookie>();
-        while (cookies != null && !"".equals(cookies.trim())) {
-            int start = cookies.indexOf("=");
-            int end = cookies.indexOf(";") != -1 ? cookies.indexOf(";") : cookies.length();
-
-            System.out.println("" + start + ", " + end);
-
-            String name = cookies.substring(0, start).trim();
-            String value = cookies.substring(start + 1, end).trim();
-
-            result.put(name.toLowerCase(), new Cookie(name, value));
-
-            cookies = cookies.length() > end ? cookies.substring(end + 1) : "";
-        }
+        for (KeyValuePairParser.Pair keyValue : pairs)
+            result.put(keyValue.key, new Cookie(keyValue));
         return result;
     }
 
@@ -54,9 +45,15 @@ public class CookieParser {
     public static class Cookie {
         public final String name;
         public final String value;
+        
         public Cookie(String name, String value) {
             this.name = name;
             this.value = value;
+        }
+
+        public Cookie(KeyValuePairParser.Pair keyValue) {
+            this.name = keyValue.key;
+            this.value = keyValue.value;
         }
 
         public String toString() {
