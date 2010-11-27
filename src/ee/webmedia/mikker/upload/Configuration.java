@@ -1,7 +1,11 @@
 package ee.webmedia.mikker.upload;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * Configuration context for the recorder applet.
@@ -81,7 +85,19 @@ public class Configuration {
     }
 
     public String getUploadFilename() {
-        return filename + ".zip";
+        return urlencode(filename) + "-" + currentDate() + ".zip";
+    }
+
+    private String currentDate() {
+        return new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
+    }
+
+    private String urlencode(String str) {
+        try {
+            return URLEncoder.encode(str, "UTF-8").replaceAll("\\.", "_");
+        } catch (UnsupportedEncodingException e) {
+            return "";
+        }
     }
 
     private String composeUploadUrl(ParameterSource cfg, String relativePath) {
