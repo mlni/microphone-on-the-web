@@ -12,7 +12,7 @@
                includeantruntime="false"
                classpathref="class.path" />
 
-        <jar jarfile="dist/recorder.jar">
+        <jar jarfile="dist/recorder.jar" manifest="etc/manifest.txt">
             <fileset dir="target" />
             <fileset dir="src" />
         </jar>
