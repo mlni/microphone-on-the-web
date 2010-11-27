@@ -1,7 +1,15 @@
 <project name="Mikrofoni applet" default="jar">
+    <property name="jar.name" value="microphone-on-the-web" />
+    <property name="jar.version" value="0.1" />
+
     <path id="class.path">
         <fileset dir="lib"/>
     </path>
+
+    <target  name="clean">
+        <delete dir="target"/>
+        <delete dir="dist"/>
+    </target>
 
     <target name="jar">
         <mkdir dir="target" />
@@ -12,12 +20,12 @@
                includeantruntime="false"
                classpathref="class.path" />
 
-        <jar jarfile="dist/recorder-0.1.jar" manifest="etc/manifest.txt">
+        <jar jarfile="dist/${jar.name}-${jar.version}.jar" manifest="etc/manifest.txt">
             <fileset dir="target" />
             <fileset dir="src" />
         </jar>
 
-        <signjar jar="dist/recorder-0.1.jar" signedjar="dist/recorder-signed-0.1a.jar"
+        <signjar jar="dist/${jar.name}-${jar.version}.jar" signedjar="dist/${jar.name}-${jar.version}-signed.jar"
                 keystore="etc/matti-jagula.keystore" storepass="changeit" alias="mykey" />
         <copy file="index.html" todir="dist" />
     </target>
