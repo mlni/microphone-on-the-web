@@ -43,5 +43,8 @@ public class KeyValuePairParser {
             this.key = name;
             this.value = value;
         }
+        public String toString() {
+            return "[" + key + "=" + value + "]";
+        }
     }
 }
