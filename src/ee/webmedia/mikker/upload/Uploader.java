@@ -60,7 +60,7 @@ public class Uploader {
         InputStream is = theUrlConnection.getInputStream();
         StringBuilder response = new StringBuilder();
         byte[] respBuffer = new byte[4096];
-        int len = 0;
+        int len;
         while ((len = is.read(respBuffer)) >= 0) {
             response.append(new String(respBuffer, 0, len).trim());
         }
@@ -74,10 +74,10 @@ public class Uploader {
                 new CookieParser.Cookie("fe_typo_user", "afa679555031be44ae3dd2784cbf2472")
         };
 
-        KeyValuePairParser.Pair pairs[] = new KeyValuePairParser.Pair[] {
-                new KeyValuePairParser.Pair("MAX_FILE_SIZE", "20000000"),
-                new KeyValuePairParser.Pair("tx_fileupload_pi1[do_upload]", "Saada fail!")
-        };
+//        KeyValuePairParser.Pair pairs[] = new KeyValuePairParser.Pair[] {
+//                new KeyValuePairParser.Pair("MAX_FILE_SIZE", "20000000"),
+//                new KeyValuePairParser.Pair("tx_fileupload_pi1[do_upload]", "Saada fail!")
+//        };
 
         String url =
         "http://www.kitarrikool.ee/minu-kool/akordsaate-kursus/ii-tase/taseme-kontroll.html"
@@ -96,7 +96,7 @@ public class Uploader {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         FileInputStream fin = new FileInputStream(filename);
         byte buf[] = new byte[1024];
-        int len = 0;
+        int len;
         while ((len = fin.read(buf)) != -1) {
             bos.write(buf, 0, len);
         }
