@@ -17,12 +17,14 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
     private final Recorder recorder;
     private final Uploader uploader;
+    private UploadListener listener;
 
-    public SaveButton(Recorder soundRecorder, Uploader uploader) {
+    public SaveButton(Recorder soundRecorder, Uploader uploader, UploadListener listener) {
         setIcon(save);
 
         this.recorder = soundRecorder;
         this.uploader = uploader;
+        this.listener = listener;
 
         setToolTipText("Upload the recorded clip");
         setEnabled(false);
@@ -52,6 +54,8 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
             uploader.upload(recorder.getRecording());
             setIcon(overlayIcon());
             setEnabled(false);
+
+            listener.onUploadCompleted();
             
             System.out.println("Uploaded file");
         } catch (IOException e) {
@@ -65,5 +69,9 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
         if (!event.isRecordingAvailable()) {
             setIcon(save);
         }
+    }
+
+    public interface UploadListener {
+        void onUploadCompleted();
     }
 }

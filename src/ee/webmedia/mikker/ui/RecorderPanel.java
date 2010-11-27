@@ -22,6 +22,11 @@ public class RecorderPanel extends JPanel {
         
         add(buttonBar, BorderLayout.NORTH);
 
+        FilenameField filename = new FilenameField(ctx);
+        soundRecorder.addListener(filename);
+
+        add(filename, BorderLayout.SOUTH);
+
         RecordButton recordButton = new RecordButton(soundRecorder, MAX_RECORDING_DURATION);
         soundRecorder.addListener(recordButton);
         buttonBar.add(recordButton);
@@ -39,13 +44,9 @@ public class RecorderPanel extends JPanel {
 
         Uploader uploader = new Uploader(ctx);
 
-        SaveButton saveButton = new SaveButton(soundRecorder, uploader);
+        SaveButton saveButton = new SaveButton(soundRecorder, uploader, filename);
         soundRecorder.addListener(saveButton);
         buttonBar.add(saveButton);
 
-        FilenameField filename = new FilenameField(ctx);
-        soundRecorder.addListener(filename);
-
-        add(filename, BorderLayout.SOUTH);
     }
 }

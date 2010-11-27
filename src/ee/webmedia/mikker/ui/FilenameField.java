@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-public class FilenameField extends JTextField implements RecordingListener {
+public class FilenameField extends JTextField implements RecordingListener, SaveButton.UploadListener {
     private Configuration ctx;
 
     public FilenameField(final Configuration conf) {
@@ -20,6 +20,10 @@ public class FilenameField extends JTextField implements RecordingListener {
 
     public void onRecordingEvent(RecordingEvent event) {
         setEnabled(event.isRecordingAvailable());
+    }
+
+    public void onUploadCompleted() {
+        setEnabled(false);
     }
 
     private class OnChangeListener implements DocumentListener {
