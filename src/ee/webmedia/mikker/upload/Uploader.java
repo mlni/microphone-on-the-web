@@ -7,9 +7,9 @@ import java.net.URL;
 public class Uploader {
     private static final String BOUNDARY = "----WebKitFormBoundary8NHXoPOgtdmTKB7e";
     
-    private RequestContext ctx;
+    private Configuration ctx;
 
-    public Uploader(RequestContext ctx) {
+    public Uploader(Configuration ctx) {
         this.ctx = ctx;
     }
 
@@ -82,7 +82,7 @@ public class Uploader {
         // "http://localhost:9999/~matti/recorder/upload.php"
               ;
 
-        RequestContext ctx = new RequestContext(url,
+        Configuration ctx = new Configuration(url,
                 "tx_fileupload_pi1",
                 filename,
                 c);

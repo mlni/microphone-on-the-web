@@ -1,7 +1,7 @@
 package ee.webmedia.mikker.ui;
 
 import ee.webmedia.mikker.recorder.SoundRecorder;
-import ee.webmedia.mikker.upload.RequestContext;
+import ee.webmedia.mikker.upload.Configuration;
 import ee.webmedia.mikker.upload.Uploader;
 
 import javax.swing.*;
@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 public class RecorderPanel extends JPanel {
     private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
 
-    public RecorderPanel(RequestContext ctx) {
+    public RecorderPanel(Configuration ctx) {
         setBackground(Color.WHITE);
 
         final SoundRecorder soundRecorder = new SoundRecorder(ctx.getFilename());

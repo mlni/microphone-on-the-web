@@ -1,16 +1,16 @@
 package ee.webmedia.mikker;
 
 import ee.webmedia.mikker.ui.RecorderPanel;
-import ee.webmedia.mikker.upload.RequestContext;
+import ee.webmedia.mikker.upload.Configuration;
 import netscape.javascript.JSObject;
 
 import javax.swing.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class RecorderApplet extends JApplet implements RequestContext.ConfigurationSource {
+public class RecorderApplet extends JApplet implements Configuration.ParameterSource {
     public void init() {
-        RequestContext ctx = new RequestContext(this);
+        Configuration ctx = new Configuration(this);
         RecorderPanel recorderPanel = new RecorderPanel(ctx);
         getContentPane().add(recorderPanel);
 

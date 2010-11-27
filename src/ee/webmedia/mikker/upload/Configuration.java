@@ -6,8 +6,8 @@ import java.util.Arrays;
 /**
  * Configuration context for the recorder applet.
  */
-public class RequestContext {
-    public interface ConfigurationSource {
+public class Configuration {
+    public interface ParameterSource {
         String getParameter(String name);
         URI getBaseUri();
         String getCookies();
@@ -18,18 +18,18 @@ public class RequestContext {
     private final CookieParser.Cookie[] cookies;
     private final String filename;
 
-    public RequestContext(String uploadUrl, String fieldName, String filename) {
+    public Configuration(String uploadUrl, String fieldName, String filename) {
         this(uploadUrl, fieldName, filename, new CookieParser.Cookie[0]);
     }
 
-    public RequestContext(String uploadUrl, String fieldName, String filename, CookieParser.Cookie[] cookies) {
+    public Configuration(String uploadUrl, String fieldName, String filename, CookieParser.Cookie[] cookies) {
         this.uploadUrl = uploadUrl;
         this.fileFieldName = fieldName;
         this.filename = filename;
         this.cookies = cookies;
     }
 
-    public RequestContext(ConfigurationSource cfg) {
+    public Configuration(ParameterSource cfg) {
         this.fileFieldName = arg(cfg, "upload_field_name", "file");
         this.filename = arg(cfg, "filename", "sound-" + System.currentTimeMillis());
 
@@ -62,18 +62,18 @@ public class RequestContext {
         return filename;
     }
 
-    private String composeUploadUrl(ConfigurationSource cfg, String relativePath) {
+    private String composeUploadUrl(ParameterSource cfg, String relativePath) {
         return cfg.getBaseUri().resolve(relativePath).toString();
     }
 
-    private String arg(ConfigurationSource conf, String argName, String defaultValue) {
+    private String arg(ParameterSource conf, String argName, String defaultValue) {
         String val = conf.getParameter(argName);
         if (val == null || "".equals(val.trim()))
             return defaultValue;
         return val.trim();
     }
 
-    private CookieParser.Cookie[] parseCookies(ConfigurationSource cfg, String cookieNames) {
+    private CookieParser.Cookie[] parseCookies(ParameterSource cfg, String cookieNames) {
         if (cookieNames == null || "".equals(cookieNames))
             return new CookieParser.Cookie[0];
 
