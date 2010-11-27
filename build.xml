@@ -21,4 +21,10 @@
                 keystore="etc/matti-jagula.keystore" storepass="changeit" alias="mykey" />
         <copy file="index.html" todir="dist" />
     </target>
+
+    <target name="deploy" depends="jar">
+        <copy todir="/Users/matti/Sites/recorder/">
+            <fileset dir="dist" />
+        </copy>
+    </target>
 </project>

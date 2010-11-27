@@ -18,14 +18,12 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
     private final Recorder recorder;
     private final Uploader uploader;
-    private final String filename;
 
-    public SaveButton(SoundRecorder soundRecorder, Uploader uploader, String filename) {
+    public SaveButton(SoundRecorder soundRecorder, Uploader uploader) {
         setIcon(save);
 
         this.recorder = soundRecorder;
         this.uploader = uploader;
-        this.filename = filename;
 
         setToolTipText("Upload the recorded clip");
         setEnabled(false);
@@ -52,8 +50,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
     public void actionPerformed(ActionEvent actionEvent) {
         try {
-            // TODO: fix uploaded file name
-            uploader.upload(filename + ".zip", "application/zip", recorder.getRecording());
+            uploader.upload(recorder.getRecording());
             setIcon(overlayIcon());
             setEnabled(false);
             

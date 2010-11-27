@@ -13,14 +13,19 @@ public class RecorderPanel extends JPanel {
     private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
 
     public RecorderPanel(Configuration ctx) {
-        setBackground(Color.WHITE);
-
         final SoundRecorder soundRecorder = new SoundRecorder(ctx.getFilename());
-        setLayout(new FlowLayout());
+        
+        setBackground(Color.WHITE);
+        setLayout(new BorderLayout());
+
+        JPanel buttonBar = new JPanel();
+        buttonBar.setBackground(Color.WHITE);
+        
+        add(buttonBar, BorderLayout.NORTH);
 
         RecordButton recordButton = new RecordButton(soundRecorder, MAX_RECORDING_DURATION);
         soundRecorder.addListener(recordButton);
-        add(recordButton);
+        buttonBar.add(recordButton);
 
         DeleteButton deleteButton = new DeleteButton();
         deleteButton.addActionListener(new ActionListener() {
@@ -31,13 +36,18 @@ public class RecorderPanel extends JPanel {
         });
 
         soundRecorder.addListener(deleteButton);
-        add(deleteButton);
+        buttonBar.add(deleteButton);
 
 
         Uploader uploader = new Uploader(ctx);
 
-        SaveButton saveButton = new SaveButton(soundRecorder, uploader, ctx.getFilename());
+        SaveButton saveButton = new SaveButton(soundRecorder, uploader);
         soundRecorder.addListener(saveButton);
-        add(saveButton);
+        buttonBar.add(saveButton);
+
+        FilenameField filename = new FilenameField(ctx);
+        soundRecorder.addListener(filename);
+
+        add(filename, BorderLayout.SOUTH);
     }
 }

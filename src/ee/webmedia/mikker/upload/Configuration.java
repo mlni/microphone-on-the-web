@@ -16,7 +16,7 @@ public class Configuration {
     private final String uploadUrl;
     private final String fileFieldName;
     private final CookieParser.Cookie[] cookies;
-    private final String filename;
+    private String filename;
     private KeyValuePairParser.Pair[] additionalPostParameters;
 
     public Configuration(String uploadUrl, String fieldName, String filename) {
@@ -70,6 +70,18 @@ public class Configuration {
 
     public KeyValuePairParser.Pair[] getAdditionalPostParameters() {
         return additionalPostParameters;
+    }
+
+    public void updateFilename(String filename) {
+        this.filename = filename;
+    }
+    
+    public String getUploadMimeType() {
+        return "application/zip";
+    }
+
+    public String getUploadFilename() {
+        return filename + ".zip";
     }
 
     private String composeUploadUrl(ParameterSource cfg, String relativePath) {

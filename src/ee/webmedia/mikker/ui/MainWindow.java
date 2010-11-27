@@ -9,7 +9,7 @@ public class MainWindow extends JFrame {
         super("Web Sound Recorder");
 
 
-        add(new RecorderPanel(new Configuration("http://localhost:9999/record/upload", "file", "audio-file.au")));
+        getContentPane().add(new RecorderPanel(new Configuration("http://localhost:9999/record/upload", "file", "tund1_sepapoisid")));
         pack();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);

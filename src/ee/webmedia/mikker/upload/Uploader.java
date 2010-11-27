@@ -13,7 +13,7 @@ public class Uploader {
         this.ctx = ctx;
     }
 
-    public void upload(String filename, String mime, byte content[]) throws IOException {
+    public void upload(byte content[]) throws IOException {
         URL url = new URL(ctx.getUploadUrl());
         HttpURLConnection theUrlConnection = (HttpURLConnection) url.openConnection();
         theUrlConnection.setRequestMethod("POST");
@@ -32,8 +32,8 @@ public class Uploader {
         DataOutputStream httpOut = new DataOutputStream(theUrlConnection.getOutputStream());
 
         String str = "--" + BOUNDARY + "\r\n"
-                   + "Content-Disposition: form-data; name=\"" + ctx.getFileFieldName() + "\"; filename=\"" + filename + "\"\r\n"
-                   + "Content-Type: " + mime + "\r\n"
+                   + "Content-Disposition: form-data; name=\"" + ctx.getFileFieldName() + "\"; filename=\"" + ctx.getUploadFilename() + "\"\r\n"
+                   + "Content-Type: " + ctx.getUploadMimeType() + "\r\n"
                    + "\r\n";
 
         httpOut.write(str.getBytes());
@@ -88,7 +88,7 @@ public class Uploader {
                 "tx_fileupload_pi1",
                 filename,
                 c);
-        new Uploader(ctx).upload(filename, "application/ogg",
+        new Uploader(ctx).upload(
                 readFile(filename));
     }
 
