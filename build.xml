@@ -1,11 +1,16 @@
 <project name="Mikrofoni applet" default="jar">
+    <path id="class.path">
+        <fileset dir="lib"/>
+    </path>
+
     <target name="jar">
         <mkdir dir="target" />
         <mkdir dir="dist" />
-        
+
         <javac srcdir="src" destdir="target"
                source="1.5" target="1.5"
-               includeantruntime="false" />
+               includeantruntime="false"
+               classpathref="class.path" />
 
         <jar jarfile="dist/recorder.jar">
             <fileset dir="target" />

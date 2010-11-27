@@ -78,7 +78,6 @@ public class RecordButton extends JButton implements RecordingListener {
             if (!recording) {
                 recorder.startRecording(new AudioLevelListener() {
                     public void onLevelChange(int level) {
-                        System.out.println("level: " + level);
                         displayLevel(level);
                     }
                 });

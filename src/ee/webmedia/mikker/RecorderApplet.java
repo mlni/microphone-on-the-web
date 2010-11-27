@@ -1,42 +1,45 @@
 package ee.webmedia.mikker;
 
 import ee.webmedia.mikker.ui.RecorderPanel;
+import ee.webmedia.mikker.upload.RequestContext;
+import netscape.javascript.JSObject;
 
 import javax.swing.*;
+import java.net.URI;
 import java.net.URISyntaxException;
 
-public class RecorderApplet extends JApplet {
+public class RecorderApplet extends JApplet implements RequestContext.ConfigurationSource {
     public void init() {
-        String uploadUrl = composeUploadUrl();
-        String fieldName = arg("upload_field_name", "file");
-        String filename = arg("filename", "sound-" + System.currentTimeMillis());
-
-        System.out.println("Parameters: upload to = " + uploadUrl +
-                ", upload field = " + fieldName +
-                ", default filename = " + filename);
-
-        RecorderPanel recorderPanel = new RecorderPanel(uploadUrl, fieldName, filename);
-        
+        RequestContext ctx = new RequestContext(this);
+        RecorderPanel recorderPanel = new RecorderPanel(ctx);
         getContentPane().add(recorderPanel);
+
+        usePlatformLookAndFeel();
 
         System.out.println("memory: " + Runtime.getRuntime().maxMemory());
     }
 
-    private String composeUploadUrl() {
-        String param = arg("upload_url", "upload.php");
 
+    private void usePlatformLookAndFeel() {
         try {
-            return getDocumentBase().toURI().resolve(param).toString();
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public URI getBaseUri() {
+        try {
+            return getDocumentBase().toURI();
         } catch (URISyntaxException e) {
             // cannot happen
             throw new IllegalStateException("Applet.getDocumentBase() returns illegal URI: " + getDocumentBase());
         }
     }
 
-    private String arg(String argName, String defaultValue) {
-        String val = getParameter(argName);
-        if (val == null || "".equals(val.trim()))
-            return defaultValue;
-        return val.trim();
+    public String getCookies() {
+        JSObject window = JSObject.getWindow(this);
+        JSObject document = (JSObject) window.getMember("document");
+        return (String) document.getMember("cookie");
     }
 }
