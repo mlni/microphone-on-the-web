@@ -12,12 +12,12 @@
                includeantruntime="false"
                classpathref="class.path" />
 
-        <jar jarfile="dist/recorder.jar" manifest="etc/manifest.txt">
+        <jar jarfile="dist/recorder-0.1.jar" manifest="etc/manifest.txt">
             <fileset dir="target" />
             <fileset dir="src" />
         </jar>
 
-        <signjar jar="dist/recorder.jar" signedjar="dist/recorder-signed.jar"
+        <signjar jar="dist/recorder-0.1.jar" signedjar="dist/recorder-signed-0.1a.jar"
                 keystore="etc/matti-jagula.keystore" storepass="changeit" alias="mykey" />
         <copy file="index.html" todir="dist" />
     </target>

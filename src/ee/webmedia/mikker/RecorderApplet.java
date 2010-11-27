@@ -49,8 +49,16 @@ public class RecorderApplet extends JApplet implements Configuration.ParameterSo
     }
 
     public String getCookies() {
+        System.out.println("reading cookies");
         JSObject window = JSObject.getWindow(this);
-        JSObject document = (JSObject) window.getMember("document");
-        return (String) document.getMember("cookie");
+        Object result = window.eval("document.cookie");
+        return result.toString();
+    }
+
+    public String determineUserAgent() {
+        JSObject window = JSObject.getWindow(this);
+        System.out.println("Determining user agent");
+        Object result = window.eval("navigator.userAgent");
+        return result.toString();
     }
 }

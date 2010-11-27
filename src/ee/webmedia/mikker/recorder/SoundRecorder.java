@@ -117,7 +117,7 @@ public class SoundRecorder implements Recorder {
             line.close();
 
             notifyListeners(RecordingEvent.microphoneInitialized());
-        } catch (LineUnavailableException e) {
+        } catch (Exception e) {
             System.out.println("Error initializing microphone: " + e);
             e.printStackTrace();
         }

@@ -27,7 +27,7 @@ public class RecorderPanel extends JPanel {
 
         RecordButton recordButton = new RecordButton(soundRecorder, ctx.getMaxRecordingDuration());
         soundRecorder.addListener(recordButton);
-        buttonBar.add(recordButton);
+        buttonBar.add(fixButtonWidthOnWindows(recordButton));
 
         DeleteButton deleteButton = new DeleteButton();
         deleteButton.addActionListener(new ActionListener() {
@@ -38,13 +38,22 @@ public class RecorderPanel extends JPanel {
         });
 
         soundRecorder.addListener(deleteButton);
-        buttonBar.add(deleteButton);
+        buttonBar.add(fixButtonWidthOnWindows(deleteButton));
 
         Uploader uploader = new Uploader(ctx);
 
         SaveButton saveButton = new SaveButton(soundRecorder, uploader, filename);
         soundRecorder.addListener(saveButton);
-        buttonBar.add(saveButton);
+        buttonBar.add(fixButtonWidthOnWindows(saveButton));
+    }
 
+    private JButton fixButtonWidthOnWindows(JButton button) {
+        /*
+         * on windows, the button gets is displayer really wide. set the preferred width to be same as the height,
+         * as it is on the mac and linux. 
+         */
+        Dimension preferredSize = button.getPreferredSize();
+        button.setPreferredSize(new Dimension((int) preferredSize.getHeight(), (int) button.getPreferredSize().getHeight()));
+        return button;
     }
 }

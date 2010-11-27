@@ -20,8 +20,6 @@ public class KeyValuePairParser {
             int start = cookies.indexOf("=");
             int end = cookies.indexOf(";") != -1 ? cookies.indexOf(";") : cookies.length();
 
-            System.out.println("" + start + ", " + end);
-
             String name = cookies.substring(0, start).trim();
             String value = cookies.substring(start + 1, end).trim();
 

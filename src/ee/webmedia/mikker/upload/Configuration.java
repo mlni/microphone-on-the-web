@@ -15,6 +15,7 @@ public class Configuration {
         String getParameter(String name);
         URI getBaseUri();
         String getCookies();
+        String determineUserAgent();
     }
 
     private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
@@ -25,6 +26,7 @@ public class Configuration {
     private String filename;
     private KeyValuePairParser.Pair[] additionalPostParameters;
     private int maxRecordingDuration = MAX_RECORDING_DURATION;
+    private String userAgent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8";
 
     public Configuration(String uploadUrl, String fieldName, String filename) {
         this(uploadUrl, fieldName, filename, new CookieParser.Cookie[0]);
@@ -34,7 +36,7 @@ public class Configuration {
         this.uploadUrl = uploadUrl;
         this.fileFieldName = fieldName;
         this.filename = filename;
-        this.cookies = cookies;
+        this.cookies = new CookieParser.Cookie[0];
         this.additionalPostParameters = new KeyValuePairParser.Pair[0];
     }
 
@@ -54,12 +56,15 @@ public class Configuration {
         if (!"".equals(maxDurationStr))
             this.maxRecordingDuration = 1000 * Integer.parseInt(maxDurationStr);
 
+        this.userAgent = cfg.determineUserAgent();
+
         System.out.println("Parameters: upload to = " + uploadUrl +
                 ", upload field = " + fileFieldName +
                 ", duration = " + maxRecordingDuration +
                 ", default filename = " + filename +
                 ", cookies = " + Arrays.asList(cookies) +
-                ", post parameters = " + Arrays.asList(additionalPostParameters));
+                ", post parameters = " + Arrays.asList(additionalPostParameters) +
+                ", user agent = " + userAgent);
     }
 
     public static String[][] supportedParameters() {
@@ -112,6 +117,10 @@ public class Configuration {
 
     public int getMaxRecordingDuration() {
         return maxRecordingDuration;
+    }
+
+    public String getUserAgent() {
+        return this.userAgent;
     }
 
     private String currentDate() {
