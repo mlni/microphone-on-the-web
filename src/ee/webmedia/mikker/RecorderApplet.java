@@ -1,5 +1,6 @@
 package ee.webmedia.mikker;
 
+import ee.webmedia.mikker.recorder.SoundRecorder;
 import ee.webmedia.mikker.ui.RecorderPanel;
 import ee.webmedia.mikker.upload.Configuration;
 import netscape.javascript.JSObject;
@@ -11,10 +12,16 @@ import java.net.URISyntaxException;
 public class RecorderApplet extends JApplet implements Configuration.ParameterSource {
     public void init() {
         Configuration ctx = new Configuration(this);
-        RecorderPanel recorderPanel = new RecorderPanel(ctx);
+        SoundRecorder recorder = new SoundRecorder(ctx.getFilename());
+        RecorderPanel recorderPanel = new RecorderPanel(ctx, recorder);
+        
         getContentPane().add(recorderPanel);
 
         usePlatformLookAndFeel();
+
+        System.out.println("Initializing microphone");
+
+        recorder.initializeMicrophone();
 
         System.out.println("memory: " + Runtime.getRuntime().maxMemory());
     }

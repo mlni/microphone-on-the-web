@@ -29,6 +29,8 @@ public class RecordButton extends JButton implements RecordingListener {
 
         this.levelDisplayingIcon = new LevelDisplayingIcon(new Icons().getStopIcon());
 
+        setEnabled(false);
+
         resetRecordButton();
     }
 
@@ -45,6 +47,7 @@ public class RecordButton extends JButton implements RecordingListener {
         if (!event.isRecordingAvailable()) {
             resetRecordButton();
         }
+        setEnabled(true);
     }
 
     private void resetPlayButton() {

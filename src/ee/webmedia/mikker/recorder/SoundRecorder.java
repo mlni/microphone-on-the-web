@@ -104,6 +104,26 @@ public class SoundRecorder implements Recorder {
         }
     }
 
+    public void initializeMicrophone() {
+        try {
+            AudioFormat format = audioFormat();
+            DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
+            TargetDataLine line = (TargetDataLine) AudioSystem.getLine(info);
+            
+            line.open(format);
+            line.start();
+
+            line.stop();
+            line.close();
+
+            notifyListeners(RecordingEvent.microphoneInitialized());
+        } catch (LineUnavailableException e) {
+            System.out.println("Error initializing microphone: " + e);
+            e.printStackTrace();
+        }
+
+    }
+
     private class ReplayThread extends Thread {
         public void run() {
             try {

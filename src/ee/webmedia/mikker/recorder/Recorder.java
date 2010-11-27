@@ -10,4 +10,6 @@ public interface Recorder {
     void deleteRecording();
 
     byte[] getRecording();
+
+    void addListener(RecordingListener recordButton);
 }

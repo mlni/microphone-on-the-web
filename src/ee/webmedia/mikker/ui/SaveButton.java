@@ -3,7 +3,6 @@ package ee.webmedia.mikker.ui;
 import ee.webmedia.mikker.recorder.Recorder;
 import ee.webmedia.mikker.recorder.RecordingEvent;
 import ee.webmedia.mikker.recorder.RecordingListener;
-import ee.webmedia.mikker.recorder.SoundRecorder;
 import ee.webmedia.mikker.upload.Uploader;
 
 import javax.swing.*;
@@ -19,7 +18,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
     private final Recorder recorder;
     private final Uploader uploader;
 
-    public SaveButton(SoundRecorder soundRecorder, Uploader uploader) {
+    public SaveButton(Recorder soundRecorder, Uploader uploader) {
         setIcon(save);
 
         this.recorder = soundRecorder;

@@ -25,6 +25,10 @@ public class RecordingEvent {
         return new RecordingEvent(false, false);
     }
 
+    public static RecordingEvent microphoneInitialized() {
+        return new RecordingEvent(false, false);
+    }
+
     public boolean isRecordingAvailable() {
         return this.recorded;
     }
@@ -32,6 +36,7 @@ public class RecordingEvent {
     public boolean isPlaying() {
         return playing;
     }
+    
     public String toString() {
         return "RecordingEvent(" + recorded + "," + playing + ")";
     }
