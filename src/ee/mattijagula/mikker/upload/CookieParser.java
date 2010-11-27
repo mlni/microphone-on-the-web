@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.upload;
+package ee.mattijagula.mikker.upload;
 
 import java.util.*;
 

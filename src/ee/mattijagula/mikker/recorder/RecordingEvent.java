@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.recorder;
+package ee.mattijagula.mikker.recorder;
 
 /**
  * Notify interested parties about events that happened during or after recording.

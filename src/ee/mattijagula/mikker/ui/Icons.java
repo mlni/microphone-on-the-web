@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.ui;
+package ee.mattijagula.mikker.ui;
 
 import javax.swing.*;
 

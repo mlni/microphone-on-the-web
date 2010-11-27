@@ -1,7 +1,7 @@
-package ee.webmedia.mikker.ui;
+package ee.mattijagula.mikker.ui;
 
-import ee.webmedia.mikker.recorder.RecordingEvent;
-import ee.webmedia.mikker.recorder.RecordingListener;
+import ee.mattijagula.mikker.recorder.RecordingEvent;
+import ee.mattijagula.mikker.recorder.RecordingListener;
 
 import javax.swing.*;
 

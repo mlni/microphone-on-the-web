@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.exploration;
+package ee.mattijagula.mikker.exploration;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

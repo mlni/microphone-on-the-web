@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.recorder;
+package ee.mattijagula.mikker.recorder;
 
 import javax.sound.sampled.*;
 import java.io.IOException;

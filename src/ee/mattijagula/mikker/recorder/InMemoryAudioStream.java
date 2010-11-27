@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.recorder;
+package ee.mattijagula.mikker.recorder;
 
 import java.io.*;
 import java.util.zip.ZipEntry;

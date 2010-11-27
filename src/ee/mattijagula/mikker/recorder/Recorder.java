@@ -1,4 +1,4 @@
-package ee.webmedia.mikker.recorder;
+package ee.mattijagula.mikker.recorder;
 
 public interface Recorder {
     void startRecording(AudioLevelListener listener);

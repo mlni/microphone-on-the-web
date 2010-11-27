@@ -1,7 +1,7 @@
-package ee.webmedia.mikker.ui;
+package ee.mattijagula.mikker.ui;
 
-import ee.webmedia.mikker.recorder.SoundRecorder;
-import ee.webmedia.mikker.upload.Configuration;
+import ee.mattijagula.mikker.recorder.SoundRecorder;
+import ee.mattijagula.mikker.upload.Configuration;
 
 import javax.swing.*;
 
