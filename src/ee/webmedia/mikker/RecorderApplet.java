@@ -26,6 +26,10 @@ public class RecorderApplet extends JApplet implements Configuration.ParameterSo
         System.out.println("memory: " + Runtime.getRuntime().maxMemory());
     }
 
+    @Override
+    public String[][] getParameterInfo() {
+        return Configuration.supportedParameters();
+    }
 
     private void usePlatformLookAndFeel() {
         try {

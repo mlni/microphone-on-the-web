@@ -10,8 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RecorderPanel extends JPanel {
-    private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
-
     public RecorderPanel(Configuration ctx, final Recorder soundRecorder) {
 
         setBackground(Color.WHITE);
@@ -27,7 +25,7 @@ public class RecorderPanel extends JPanel {
 
         add(filename, BorderLayout.SOUTH);
 
-        RecordButton recordButton = new RecordButton(soundRecorder, MAX_RECORDING_DURATION);
+        RecordButton recordButton = new RecordButton(soundRecorder, ctx.getMaxRecordingDuration());
         soundRecorder.addListener(recordButton);
         buttonBar.add(recordButton);
 

@@ -3,32 +3,29 @@ package ee.webmedia.mikker.upload;
 import java.util.*;
 
 public class CookieParser {
-    private Map<String, Cookie> cookies;
+    private Cookie allCookies[];
 
     public CookieParser(String cookies) {
-        this.cookies = parseCookies(cookies);
+        this.allCookies = parseCookies(cookies);
     }
 
-    private HashMap<String, Cookie> parseCookies(String cookies) {
-        KeyValuePairParser.Pair pairs[] = new KeyValuePairParser(cookies).getPairs();
-
-        HashMap<String, Cookie> result = new HashMap<String, Cookie>();
-        for (KeyValuePairParser.Pair keyValue : pairs)
-            result.put(keyValue.key, new Cookie(keyValue));
-        return result;
+    public Cookie[] getAllCookies() {
+        return allCookies;
     }
 
     public Cookie getCookie(String name) {
-        return cookies.get(name.toLowerCase());
+        for (Cookie c : allCookies)
+            if (c.name.equals(name.toLowerCase()))
+                return c;
+        return null;
     }
 
-    public Cookie[] getCookies(String cookieNames) {
-        String requestedNames[] = cookieNames.split(",");
+    private Cookie[] parseCookies(String cookies) {
+        KeyValuePairParser.Pair pairs[] = new KeyValuePairParser(cookies).getPairs();
+
         List<Cookie> result = new ArrayList<Cookie>();
-        for (String name : requestedNames) {
-            if (cookies.containsKey(name.trim().toLowerCase()))
-                result.add(getCookie(name.trim()));
-        }
+        for (KeyValuePairParser.Pair keyValue : pairs)
+            result.add(new Cookie(keyValue));
         return result.toArray(new Cookie[0]);
     }
 
@@ -68,6 +65,5 @@ public class CookieParser {
                 "SID=DQAAAJ4A;");
         Cookie tz = parser.getCookie("TZ");
         System.out.println("tz: " + tz);
-        System.out.println("cookies: " + Arrays.asList(parser.getCookies("tz, JSESSION_ID")));
     }
 }

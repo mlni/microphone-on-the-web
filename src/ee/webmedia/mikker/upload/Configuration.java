@@ -17,11 +17,14 @@ public class Configuration {
         String getCookies();
     }
 
+    private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
+
     private final String uploadUrl;
     private final String fileFieldName;
     private final CookieParser.Cookie[] cookies;
     private String filename;
     private KeyValuePairParser.Pair[] additionalPostParameters;
+    private int maxRecordingDuration = MAX_RECORDING_DURATION;
 
     public Configuration(String uploadUrl, String fieldName, String filename) {
         this(uploadUrl, fieldName, filename, new CookieParser.Cookie[0]);
@@ -42,18 +45,33 @@ public class Configuration {
         String relativePath = arg(cfg, "upload_url", "");
         this.uploadUrl = composeUploadUrl(cfg, relativePath);
 
-        String cookieNames = arg(cfg, "cookie_names", "");
-        this.cookies = parseCookies(cfg, cookieNames);
+        this.cookies = parseCookies(cfg);
 
         String postParameters = arg(cfg, "post_parameters", "");
         this.additionalPostParameters = new KeyValuePairParser(postParameters).getPairs();
 
+        String maxDurationStr = arg(cfg, "max_duration_seconds", "");
+        if (!"".equals(maxDurationStr))
+            this.maxRecordingDuration = 1000 * Integer.parseInt(maxDurationStr);
+
         System.out.println("Parameters: upload to = " + uploadUrl +
                 ", upload field = " + fileFieldName +
+                ", duration = " + maxRecordingDuration +
                 ", default filename = " + filename +
-                ", cookie names = " + cookieNames +
                 ", cookies = " + Arrays.asList(cookies) +
                 ", post parameters = " + Arrays.asList(additionalPostParameters));
+    }
+
+    public static String[][] supportedParameters() {
+        return new String[][] {
+                { "upload_url", "url", "relative or absolute url where the recording is to be uploaded, " +
+                        "defaults to applet document url" },
+                { "upload_field_name", "string", "name of the file field on the upload form" },
+                { "filename", "string", "initial value of the filename for the recording" },
+                { "max_duration_seconds", "integer", "maximal duration of the recording in seconds, defaults to 120" },
+                { "post_parameters", "string", "semicolon-separated list of key-value pairs with POST parameters " +
+                        "to submit when uploading the file" }
+        };
     }
 
     public String getUploadUrl() {
@@ -92,6 +110,10 @@ public class Configuration {
         return "recording-" + currentDate() + ".au";
     }
 
+    public int getMaxRecordingDuration() {
+        return maxRecordingDuration;
+    }
+
     private String currentDate() {
         return new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
     }
@@ -115,13 +137,10 @@ public class Configuration {
         return val.trim();
     }
 
-    private CookieParser.Cookie[] parseCookies(ParameterSource cfg, String cookieNames) {
-        if (cookieNames == null || "".equals(cookieNames))
-            return new CookieParser.Cookie[0];
-
+    private CookieParser.Cookie[] parseCookies(ParameterSource cfg) {
         String browserCookies = cfg.getCookies();
 
         CookieParser parser = new CookieParser(browserCookies);
-        return parser.getCookies(cookieNames);
+        return parser.getAllCookies();
     }
 }
