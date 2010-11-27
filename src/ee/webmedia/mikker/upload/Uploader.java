@@ -21,10 +21,6 @@ public class Uploader {
         theUrlConnection.setDoInput(true);
         theUrlConnection.setUseCaches(false);
 
-        String additionalParams[][] = new String[][] {
-                { "MAX_FILE_SIZE", "20000000" },
-                { "tx_fileupload_pi1[do_upload]", "Saada fail!" }
-        };
 
         theUrlConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary="
                 + BOUNDARY);
@@ -44,9 +40,10 @@ public class Uploader {
 
         httpOut.write(content);
 
-        for (String pair[] : additionalParams) {
-            String name = pair[0];
-            String value = pair[1];
+        KeyValuePairParser.Pair postParameters[] = ctx.getAdditionalPostParameters();
+        for (KeyValuePairParser.Pair pair : postParameters) {
+            String name = pair.key;
+            String value = pair.value;
             httpOut.write(("\r\n--" + BOUNDARY + "\r\n").getBytes());
             httpOut.write(("Content-Disposition: form-data; name=\""+ name +"\"\r\n" +
                     "\r\n").getBytes());
@@ -75,6 +72,11 @@ public class Uploader {
         String filename = "matti_testib_uploadi_appletist.ogg";
         CookieParser.Cookie c[] = new CookieParser.Cookie[] {
                 new CookieParser.Cookie("fe_typo_user", "afa679555031be44ae3dd2784cbf2472")
+        };
+
+        KeyValuePairParser.Pair pairs[] = new KeyValuePairParser.Pair[] {
+                new KeyValuePairParser.Pair("MAX_FILE_SIZE", "20000000"),
+                new KeyValuePairParser.Pair("tx_fileupload_pi1[do_upload]", "Saada fail!")
         };
 
         String url =

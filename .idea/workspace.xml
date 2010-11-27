@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" afterPath="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="mikker.iws" />
@@ -70,33 +68,11 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java">
+      <file leaf-file-name="Uploader.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="68" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CookieParser.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="5" selection-start="689" selection-end="689" vertical-scroll-proportion="0.35059762">
+            <state line="80" column="0" selection-start="3192" selection-end="3192" vertical-scroll-proportion="1.0894309">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyValuePairParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,11 +102,11 @@
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/RequestContext.java" />
-        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
         <option value="$PROJECT_DIR$/result.html" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java" />
         <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java" />
+        <option value="$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java" />
       </list>
     </option>
   </component>
@@ -526,7 +502,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.41153845" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39971244" sideWeight="0.58589745" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946082" sideWeight="0.6624041" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946082" sideWeight="0.6636829" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40409207" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -550,7 +526,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed requestcontext -&gt; configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="send additional post parameters if supplied" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -584,6 +560,8 @@
     <MESSAGE value="fixed the uploader for python apps" />
     <MESSAGE value="separated configuration into its own class&#10;added parsing and submitting of browser cookies" />
     <MESSAGE value="renamed requestcontext -&gt; configuration" />
+    <MESSAGE value="separated parsing of key-value pairs from cookie parsin" />
+    <MESSAGE value="send additional post parameters if supplied" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -643,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="35" selection-start="1884" selection-end="1884" vertical-scroll-proportion="0.38753387">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/RecorderApplet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="15" selection-start="874" selection-end="874" vertical-scroll-proportion="0.47808766">
@@ -682,9 +653,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="44" selection-start="901" selection-end="901" vertical-scroll-proportion="0.4302789">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="68" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.0">
+        <state line="43" column="57" selection-start="1511" selection-end="1526" vertical-scroll-proportion="0.4621514">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -693,16 +671,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/KeyValuePairParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="0.0">
+        <state line="31" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="0.49402392">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/CookieParser.java">
+    <entry file="file://$PROJECT_DIR$/src/ee/webmedia/mikker/upload/Uploader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="689" selection-end="689" vertical-scroll-proportion="0.35059762">
+        <state line="80" column="0" selection-start="3192" selection-end="3192" vertical-scroll-proportion="1.0894309">
           <folding />
         </state>
       </provider>
