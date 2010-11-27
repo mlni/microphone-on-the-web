@@ -88,6 +88,10 @@ public class Configuration {
         return urlencode(filename) + "-" + currentDate() + ".zip";
     }
 
+    public String getRecordingFilename() {
+        return "recording-" + currentDate() + ".au";
+    }
+
     private String currentDate() {
         return new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
     }

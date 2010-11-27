@@ -9,8 +9,8 @@ public class MainWindow extends JFrame {
     public MainWindow() {
         super("Web Sound Recorder");
 
-        SoundRecorder recorder = new SoundRecorder("filename");
-        Configuration cfg = new Configuration("http://localhost:9999/record/upload", "file", "tund1_sepapoisid");
+        Configuration cfg = new Configuration("http://localhost/~matti/recorder/upload.php", "fail", "tund1_sepapoisid");
+        SoundRecorder recorder = new SoundRecorder(cfg.getRecordingFilename());
         getContentPane().add(new RecorderPanel(cfg, recorder));
         pack();
 

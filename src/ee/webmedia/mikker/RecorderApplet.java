@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 public class RecorderApplet extends JApplet implements Configuration.ParameterSource {
     public void init() {
         Configuration ctx = new Configuration(this);
-        SoundRecorder recorder = new SoundRecorder(ctx.getFilename());
+        SoundRecorder recorder = new SoundRecorder(ctx.getRecordingFilename());
         RecorderPanel recorderPanel = new RecorderPanel(ctx, recorder);
         
         getContentPane().add(recorderPanel);
