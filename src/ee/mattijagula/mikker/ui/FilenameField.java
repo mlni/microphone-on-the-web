@@ -19,7 +19,10 @@ public class FilenameField extends JTextField implements RecordingListener, Save
     }
 
     public void onRecordingEvent(RecordingEvent event) {
-        setEnabled(event.isRecordingAvailable());
+        if (event.isNewRecordingFinished())
+            setEnabled(true);
+        if (!event.isRecordingAvailable())
+            setEnabled(false);
     }
 
     public void onUploadCompleted() {

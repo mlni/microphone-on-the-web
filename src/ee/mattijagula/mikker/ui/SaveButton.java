@@ -64,9 +64,10 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
     }
 
     public void onRecordingEvent(RecordingEvent event) {
-        setEnabled(event.isRecordingAvailable());
-        
+        if (event.isNewRecordingFinished())
+            setEnabled(true);
         if (!event.isRecordingAvailable()) {
+            setEnabled(false);
             setIcon(save);
         }
     }
