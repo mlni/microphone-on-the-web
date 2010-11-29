@@ -2,7 +2,6 @@ package ee.mattijagula.mikker;
 
 import ee.mattijagula.mikker.recorder.SoundRecorder;
 import ee.mattijagula.mikker.ui.RecorderPanel;
-import ee.mattijagula.mikker.upload.Configuration;
 import netscape.javascript.JSObject;
 
 import javax.swing.*;

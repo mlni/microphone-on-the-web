@@ -1,8 +1,8 @@
 package ee.mattijagula.mikker.ui;
 
+import ee.mattijagula.mikker.Configuration;
 import ee.mattijagula.mikker.recorder.RecordingEvent;
 import ee.mattijagula.mikker.recorder.RecordingListener;
-import ee.mattijagula.mikker.upload.Configuration;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;

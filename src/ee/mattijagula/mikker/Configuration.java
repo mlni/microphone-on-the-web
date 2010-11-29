@@ -1,4 +1,7 @@
-package ee.mattijagula.mikker.upload;
+package ee.mattijagula.mikker;
+
+import ee.mattijagula.mikker.upload.CookieParser;
+import ee.mattijagula.mikker.upload.KeyValuePairParser;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URI;

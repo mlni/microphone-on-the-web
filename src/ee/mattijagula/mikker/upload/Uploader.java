@@ -1,5 +1,7 @@
 package ee.mattijagula.mikker.upload;
 
+import ee.mattijagula.mikker.Configuration;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;

@@ -1,7 +1,7 @@
 package ee.mattijagula.mikker.ui;
 
+import ee.mattijagula.mikker.Configuration;
 import ee.mattijagula.mikker.recorder.Recorder;
-import ee.mattijagula.mikker.upload.Configuration;
 import ee.mattijagula.mikker.upload.Uploader;
 
 import javax.swing.*;
