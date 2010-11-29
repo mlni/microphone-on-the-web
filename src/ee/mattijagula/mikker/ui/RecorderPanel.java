@@ -12,11 +12,12 @@ import java.awt.event.ActionListener;
 public class RecorderPanel extends JPanel {
     public RecorderPanel(Configuration ctx, final Recorder soundRecorder) {
 
-        setBackground(Color.WHITE);
+        Color bgColor = new Color(ctx.getBackgroundColor());
+        setBackground(bgColor);
         setLayout(new BorderLayout());
 
         JPanel buttonBar = new JPanel();
-        buttonBar.setBackground(Color.WHITE);
+        buttonBar.setBackground(bgColor);
         
         add(buttonBar, BorderLayout.NORTH);
 

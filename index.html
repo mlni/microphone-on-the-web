@@ -7,7 +7,9 @@
 <body>
     <h1>Sound recorder test</h1>
 
-    <applet width="250" height="100" archive="microphone-on-the-web-0.1-signed.jar" code="ee.mattijagula.mikker.RecorderApplet">
+    <applet width="250" height="100"
+            archive="microphone-on-the-web-0.1-signed.jar" code="ee.mattijagula.mikker.RecorderApplet"
+            mayscript="true">
         <param name="upload_url" value="upload.php" />
         <param name="upload_field_name" value="fail" />
         <param name="post_parameters" value="MAX_FILE_SIZE=20000000; tx_fileupload_pi1[do_upload]=Saada fail!" />

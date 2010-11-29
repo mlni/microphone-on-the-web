@@ -16,7 +16,7 @@
         <mkdir dir="dist" />
 
         <javac srcdir="src" destdir="target"
-               source="1.5" target="1.5"
+               source="1.5" target="1.5" debug="true"
                includeantruntime="false"
                classpathref="class.path" />
 

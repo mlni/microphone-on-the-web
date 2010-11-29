@@ -19,6 +19,7 @@ public class Configuration {
     }
 
     private final int MAX_RECORDING_DURATION = 2 * 60 * 1000;
+    private final int DEFAULT_BACKGROUND_COLOR = 0xffffff;
 
     private final String uploadUrl;
     private final String fileFieldName;
@@ -26,6 +27,7 @@ public class Configuration {
     private String filename;
     private KeyValuePairParser.Pair[] additionalPostParameters;
     private int maxRecordingDuration = MAX_RECORDING_DURATION;
+    private int backgroundColor = DEFAULT_BACKGROUND_COLOR;
     private String userAgent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8";
 
     public Configuration(String uploadUrl, String fieldName, String filename) {
@@ -52,17 +54,22 @@ public class Configuration {
         String postParameters = arg(cfg, "post_parameters", "");
         this.additionalPostParameters = new KeyValuePairParser(postParameters).getPairs();
 
+        String bgColor = arg(cfg, "background_color", Integer.toHexString(DEFAULT_BACKGROUND_COLOR));
+        this.backgroundColor = Integer.parseInt(bgColor, 16);
+
         String maxDurationStr = arg(cfg, "max_duration_seconds", "");
         if (!"".equals(maxDurationStr))
             this.maxRecordingDuration = 1000 * Integer.parseInt(maxDurationStr);
 
         this.userAgent = cfg.determineUserAgent();
 
-        System.out.println("Parameters: upload to = " + uploadUrl +
+        System.out.println(
+                "Parameters: upload to = " + uploadUrl +
                 ", upload field = " + fileFieldName +
                 ", duration = " + maxRecordingDuration +
                 ", default filename = " + filename +
                 ", cookies = " + Arrays.asList(cookies) +
+                ", background color = " + backgroundColor +
                 ", post parameters = " + Arrays.asList(additionalPostParameters) +
                 ", user agent = " + userAgent);
     }
@@ -121,6 +128,10 @@ public class Configuration {
 
     public String getUserAgent() {
         return this.userAgent;
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
     }
 
     private String currentDate() {
