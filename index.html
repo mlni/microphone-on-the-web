@@ -3,11 +3,16 @@
 <html>
 <head>
     <title>Sound recorder test</title>
+    <style>
+        body {
+            background-color: #FEFFEF;
+        }
+    </style>
 </head>
 <body>
     <h1>Sound recorder test</h1>
 
-    <applet width="250" height="100"
+    <applet width="250" height="120"
             archive="microphone-on-the-web-0.1-signed.jar" code="ee.mattijagula.mikker.RecorderApplet"
             mayscript="true">
         <param name="upload_url" value="upload.php" />
@@ -15,6 +20,7 @@
         <param name="post_parameters" value="MAX_FILE_SIZE=20000000; tx_fileupload_pi1[do_upload]=Saada fail!" />
         <param name="filename" value="vaikimisi_faili_nimi" />
         <param name="max_duration_seconds" value="120" />
+        <param name="background_color" value="#FEFFEF" />
     </applet>
 </body>
 </html>

@@ -12,19 +12,24 @@ import java.awt.event.ActionListener;
 public class RecorderPanel extends JPanel {
     public RecorderPanel(Configuration ctx, final Recorder soundRecorder) {
 
+        setLayout(new FlowLayout(FlowLayout.CENTER));
+
         Color bgColor = new Color(ctx.getBackgroundColor());
         setBackground(bgColor);
-        setLayout(new BorderLayout());
+
+        JPanel backgroundPanel = new JPanel(new BorderLayout());
+        add(backgroundPanel);
+        backgroundPanel.setBackground(bgColor);
 
         JPanel buttonBar = new JPanel();
         buttonBar.setBackground(bgColor);
         
-        add(buttonBar, BorderLayout.NORTH);
+        backgroundPanel.add(buttonBar, BorderLayout.NORTH);
 
         FilenameField filename = new FilenameField(ctx);
         soundRecorder.addListener(filename);
 
-        add(filename, BorderLayout.SOUTH);
+        backgroundPanel.add(filename, BorderLayout.SOUTH);
 
         RecordButton recordButton = new RecordButton(soundRecorder, ctx.getMaxRecordingDuration());
         soundRecorder.addListener(recordButton);

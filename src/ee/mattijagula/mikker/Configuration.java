@@ -53,7 +53,7 @@ public class Configuration {
         this.additionalPostParameters = new KeyValuePairParser(postParameters).getPairs();
 
         String bgColor = arg(cfg, "background_color", Integer.toHexString(DEFAULT_BACKGROUND_COLOR));
-        this.backgroundColor = Integer.parseInt(bgColor, 16);
+        this.backgroundColor = Integer.parseInt(normalizeNumber(bgColor), 16);
 
         String maxDurationStr = arg(cfg, "max_duration_seconds", "");
         if (!"".equals(maxDurationStr))
@@ -130,6 +130,10 @@ public class Configuration {
 
     public int getBackgroundColor() {
         return backgroundColor;
+    }
+
+    private String normalizeNumber(String num) {
+        return num.replaceFirst("^#", "");
     }
 
     private String currentDate() {
