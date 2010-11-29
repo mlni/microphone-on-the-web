@@ -1,6 +1,5 @@
 package ee.mattijagula.mikker;
 
-import ee.mattijagula.mikker.upload.CookieParser;
 import ee.mattijagula.mikker.upload.KeyValuePairParser;
 
 import java.io.UnsupportedEncodingException;
@@ -26,7 +25,7 @@ public class Configuration {
 
     private final String uploadUrl;
     private final String fileFieldName;
-    private final CookieParser.Cookie[] cookies;
+    private final String cookies;
     private String filename;
     private KeyValuePairParser.Pair[] additionalPostParameters;
     private int maxRecordingDuration = MAX_RECORDING_DURATION;
@@ -34,14 +33,10 @@ public class Configuration {
     private String userAgent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8";
 
     public Configuration(String uploadUrl, String fieldName, String filename) {
-        this(uploadUrl, fieldName, filename, new CookieParser.Cookie[0]);
-    }
-
-    public Configuration(String uploadUrl, String fieldName, String filename, CookieParser.Cookie[] cookies) {
         this.uploadUrl = uploadUrl;
         this.fileFieldName = fieldName;
         this.filename = filename;
-        this.cookies = new CookieParser.Cookie[0];
+        this.cookies = "";
         this.additionalPostParameters = new KeyValuePairParser.Pair[0];
     }
 
@@ -52,7 +47,7 @@ public class Configuration {
         String relativePath = arg(cfg, "upload_url", "");
         this.uploadUrl = composeUploadUrl(cfg, relativePath);
 
-        this.cookies = parseCookies(cfg);
+        this.cookies = cfg.getCookies();
 
         String postParameters = arg(cfg, "post_parameters", "");
         this.additionalPostParameters = new KeyValuePairParser(postParameters).getPairs();
@@ -97,7 +92,7 @@ public class Configuration {
         return fileFieldName;
     }
 
-    public CookieParser.Cookie[] getCookies() {
+    public String getCookies() {
         return cookies;
     }
 
@@ -158,12 +153,5 @@ public class Configuration {
         if (val == null || "".equals(val.trim()))
             return defaultValue;
         return val.trim();
-    }
-
-    private CookieParser.Cookie[] parseCookies(ParameterSource cfg) {
-        String browserCookies = cfg.getCookies();
-
-        CookieParser parser = new CookieParser(browserCookies);
-        return parser.getAllCookies();
     }
 }

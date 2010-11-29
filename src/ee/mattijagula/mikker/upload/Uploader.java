@@ -24,7 +24,8 @@ public class Uploader {
         theUrlConnection.setUseCaches(false);
 
         theUrlConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
-        theUrlConnection.setRequestProperty("Cookie", CookieParser.toRequestHeader(ctx.getCookies()));
+        if (!"".equals(ctx.getCookies()))
+            theUrlConnection.setRequestProperty("Cookie", ctx.getCookies());
         theUrlConnection.setRequestProperty("User-Agent", ctx.getUserAgent());
 
         DataOutputStream httpOut = new DataOutputStream(theUrlConnection.getOutputStream());
