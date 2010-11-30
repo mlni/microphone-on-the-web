@@ -74,7 +74,7 @@ public class Uploader {
             parts.add(new StringPart(pair.key, pair.value));
         }
 
-        Part partArray[] = parts.toArray(new Part[0]);
+        Part partArray[] = parts.toArray(new Part[parts.size()]);
         return partArray;
     }
 }

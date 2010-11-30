@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="cleaned up old uploader code">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" />
+    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="mikker.iws" />
@@ -86,18 +82,7 @@
       <file leaf-file-name="Uploader.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="35" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.37789905">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="26" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+            <state line="76" column="62" selection-start="2822" selection-end="2822" vertical-scroll-proportion="1.472093">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -610,7 +595,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39971244" sideWeight="0.3657289" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32997844" sideWeight="0.5869565" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40409207" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40409207" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Analyze Dataflow to" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -632,7 +617,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up old uploader code" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved test configuration code into Main&#10;fixed post parameters in new uploader&#10;allowed re-uploading in case of failed upload" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -645,7 +630,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="fixed the uploader for python apps" />
     <MESSAGE value="separated configuration into its own class&#10;added parsing and submitting of browser cookies" />
     <MESSAGE value="renamed requestcontext -&gt; configuration" />
     <MESSAGE value="separated parsing of key-value pairs from cookie parsin" />
@@ -670,6 +654,7 @@
     <MESSAGE value="changed uploader implementation to use apache httpclient&#10;added progress display of uploading" />
     <MESSAGE value="added error icon display when uploading fails" />
     <MESSAGE value="cleaned up old uploader code" />
+    <MESSAGE value="moved test configuration code into Main&#10;fixed post parameters in new uploader&#10;allowed re-uploading in case of failed upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -728,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/KeyValuePairParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="18" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
@@ -756,24 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="35" selection-start="3085" selection-end="3085" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="26" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="84" selection-start="1890" selection-end="1890" vertical-scroll-proportion="0.0">
@@ -790,9 +750,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="35" selection-start="3085" selection-end="3085" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="26" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.26193723">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="35" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.37789905">
+        <state line="76" column="62" selection-start="2822" selection-end="2822" vertical-scroll-proportion="1.472093">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
