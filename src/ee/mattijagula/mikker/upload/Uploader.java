@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Uploader {
-    private static final String BOUNDARY = "----WebKitFormBoundary8NHXoPOgtdmTKB7e";
-    
     private Configuration ctx;
 
     public Uploader(Configuration ctx) {
