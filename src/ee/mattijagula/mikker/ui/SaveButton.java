@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 public class SaveButton extends JButton implements ActionListener, RecordingListener {
     private final ImageIcon save = new Icons().getSaveIcon();
     private final ImageIcon ok = new Icons().getOkIcon();
+    private final ImageIcon error = new Icons().getErrorIcon();
+    
     private static final Color PROGRESS_COLOR = new Color(0, 0xaa, 0, 127);
 
     private final Recorder recorder;
@@ -34,11 +36,12 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
         addActionListener(this);
     }
 
-    private Icon overlayIcon() {
+    private Icon overlayIcon(final ImageIcon overlayWith) {
         return new Icon() {
             public void paintIcon(Component component, Graphics graphics, int x, int y) {
                 save.paintIcon(component, graphics, x, y);
-                ok.paintIcon(component, graphics, x, y + (save.getIconHeight() - ok.getIconHeight()));
+                int topLeftPosition = y + (save.getIconHeight() - overlayWith.getIconHeight());
+                overlayWith.paintIcon(component, graphics, x, topLeftPosition);
             }
 
             public int getIconWidth() {
@@ -67,7 +70,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
             public void finished() {
                 System.out.println("finished");
-                setIcon(overlayIcon());
+                setIcon(overlayIcon(ok));
                 recorder.deleteRecording();
             }
         };
@@ -81,6 +84,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
                 try {
                     uploader.upload(recorder.getRecording(), progressListener);
                 } catch (UploadFailedException e) {
+                    setIcon(overlayIcon(error));
                     e.printStackTrace();
                 }
             }

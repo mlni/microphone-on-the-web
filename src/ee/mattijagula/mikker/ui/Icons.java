@@ -21,8 +21,11 @@ public class Icons {
     public ImageIcon getOkIcon() {
         return loadIcon("icons/emblem-ok.png", "OK");
     }
+    public ImageIcon getErrorIcon() {
+        return loadIcon("icons/emblem-error.png", "Error");
+    }
 
     private ImageIcon loadIcon(String path, String label) {
-        return new ImageIcon(Icons.class.getClassLoader().getResource(path));
+        return new ImageIcon(Icons.class.getClassLoader().getResource(path), label);
     }
 }
