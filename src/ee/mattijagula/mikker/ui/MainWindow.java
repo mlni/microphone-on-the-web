@@ -6,10 +6,9 @@ import ee.mattijagula.mikker.recorder.SoundRecorder;
 import javax.swing.*;
 
 public class MainWindow extends JFrame {
-    public MainWindow() {
+    public MainWindow(Configuration cfg) {
         super("Web Sound Recorder");
 
-        Configuration cfg = new Configuration("http://localhost/~matti/recorder/upload.php", "fail", "tund1_sepapoisid");
         SoundRecorder recorder = new SoundRecorder(cfg.getRecordingFilename());
         getContentPane().add(new RecorderPanel(cfg, recorder));
         pack();

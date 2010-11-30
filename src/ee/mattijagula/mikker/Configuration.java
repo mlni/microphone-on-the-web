@@ -42,7 +42,7 @@ public class Configuration {
 
     public Configuration(ParameterSource cfg) {
         this.fileFieldName = arg(cfg, "upload_field_name", "file");
-        this.filename = arg(cfg, "filename", "sound-" + System.currentTimeMillis());
+        this.filename = arg(cfg, "filename", "file_name");
 
         String relativePath = arg(cfg, "upload_url", "");
         this.uploadUrl = composeUploadUrl(cfg, relativePath);

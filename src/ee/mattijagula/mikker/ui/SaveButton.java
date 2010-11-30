@@ -85,6 +85,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
                     uploader.upload(recorder.getRecording(), progressListener);
                 } catch (UploadFailedException e) {
                     setIcon(overlayIcon(error));
+                    setEnabled(true);
                     e.printStackTrace();
                 }
             }

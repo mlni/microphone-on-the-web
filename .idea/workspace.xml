@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
+    <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="cleaned up old uploader code">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="mikker.iws" />
@@ -71,7 +75,7 @@
       <file leaf-file-name="SaveButton.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="31" selection-start="2900" selection-end="2900" vertical-scroll-proportion="0.0">
+            <state line="87" column="35" selection-start="3085" selection-end="3085" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -82,10 +86,59 @@
       <file leaf-file-name="Uploader.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="4" selection-start="633" selection-end="633" vertical-scroll-proportion="0.2549801">
+            <state line="48" column="35" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.37789905">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="26" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="40" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="84" selection-start="1890" selection-end="1890" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyValuePairParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/KeyValuePairParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="18" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,10 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java" />
-        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/HttpUploader.java" />
-        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/ContentSource.java" />
-        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/UploadFailedException.java" />
         <option value="$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/ProgressListener.java" />
         <option value="$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/DelegatingRequestEntity.java" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/DelegatingRequestEntity.java" />
@@ -118,7 +167,11 @@
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/ProgressReportingRequestEntity.java" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/LevelDisplayingIcon.java" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/Icons.java" />
+        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java" />
+        <option value="$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java" />
+        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" />
       </list>
     </option>
@@ -252,7 +305,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="httpupload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mikker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="httpupload" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -260,11 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mikker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
+              <option name="myItemId" value="upload" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -546,7 +605,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32736573" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24946082" sideWeight="0.41048592" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997844" sideWeight="0.41048592" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39971244" sideWeight="0.3657289" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32997844" sideWeight="0.5869565" order="0" side_tool="false" content_ui="tabs" />
@@ -620,59 +679,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar!/java/io/InputStream.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="29" selection-start="161" selection-end="161" vertical-scroll-proportion="0.06374502">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../httpupload/lib/commons-httpclient-3.1.jar!/org/apache/commons/httpclient/methods/RequestEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="186" selection-end="186" vertical-scroll-proportion="-2.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/UploadFailedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="65" selection-start="229" selection-end="229" vertical-scroll-proportion="0.114597544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="654" selection-end="2144" vertical-scroll-proportion="0.8605578">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/DelegatingRequestEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="250" selection-end="2121" vertical-scroll-proportion="0.1434263">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="18" selection-start="4200" selection-end="4200" vertical-scroll-proportion="1.7398374">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.32520324">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/ProgressListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="7" selection-start="46" selection-end="46" vertical-scroll-proportion="0.032742154">
@@ -722,9 +728,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/KeyValuePairParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="18" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../httpupload/lib/commons-httpclient-3.1.jar!/org/apache/commons/httpclient/methods/multipart/MultipartRequestEntity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="11" selection-start="766" selection-end="766" vertical-scroll-proportion="0.24207492">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../httpupload/lib/commons-httpclient-3.1.jar!/org/apache/commons/httpclient/params/HttpMethodParams.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="20" selection-start="181" selection-end="181" vertical-scroll-proportion="-0.18476728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/ui/SaveButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="31" selection-start="2900" selection-end="2900" vertical-scroll-proportion="0.0">
+        <state line="87" column="35" selection-start="3085" selection-end="3085" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../httpupload/src/ee/mattijagula/upload/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="26" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="84" selection-start="1890" selection-end="1890" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="40" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -733,7 +792,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="633" selection-end="633" vertical-scroll-proportion="0.2549801">
+        <state line="48" column="35" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.37789905">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

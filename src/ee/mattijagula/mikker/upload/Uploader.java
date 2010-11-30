@@ -4,14 +4,13 @@ import ee.mattijagula.mikker.Configuration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
-import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
-import org.apache.commons.httpclient.methods.multipart.Part;
-import org.apache.commons.httpclient.methods.multipart.PartSource;
+import org.apache.commons.httpclient.methods.multipart.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Uploader {
     private Configuration ctx;
@@ -40,11 +39,6 @@ public class Uploader {
             post.addRequestHeader("Cookie", ctx.getCookies());
         }
 
-
-        for (KeyValuePairParser.Pair pair : ctx.getAdditionalPostParameters()) {
-            post.addParameter(pair.key, pair.value);
-        }
-
         PartSource partSource = new PartSource() {
             public long getLength() {
                 return content.length;
@@ -57,11 +51,9 @@ public class Uploader {
             }
         };
 
-        Part[] parts = {
-                new FilePart(ctx.getFileFieldName(), partSource, ctx.getUploadMimeType(), "utf-8")
-        };
+        Part[] partArray = composeParts(partSource);
 
-        MultipartRequestEntity requestEntity = new MultipartRequestEntity(parts, post.getParams());
+        MultipartRequestEntity requestEntity = new MultipartRequestEntity(partArray, post.getParams());
         post.setRequestEntity(new ProgressReportingRequestEntity(requestEntity, progressListener));
 
         int status = client.executeMethod(post);
@@ -69,7 +61,20 @@ public class Uploader {
             progressListener.finished();
             System.out.println("Upload complete, response=" + post.getResponseBodyAsString());
         } else {
-            throw new UploadFailedException("Upload failed with code " + HttpStatus.getStatusText(status));
+            throw new UploadFailedException("Upload failed with code " + status
+                    + " : " + HttpStatus.getStatusText(status));
         }
+    }
+
+    private Part[] composeParts(PartSource partSource) {
+        List<Part> parts = new ArrayList<Part>();
+        
+        parts.add(new FilePart(ctx.getFileFieldName(), partSource, ctx.getUploadMimeType(), "utf-8"));
+        for (KeyValuePairParser.Pair pair : ctx.getAdditionalPostParameters()) {
+            parts.add(new StringPart(pair.key, pair.value));
+        }
+
+        Part partArray[] = parts.toArray(new Part[0]);
+        return partArray;
     }
 }
