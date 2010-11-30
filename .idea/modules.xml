@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../../temp/JavaSoundDemo/JavaSoundDemo.iml" filepath="$PROJECT_DIR$/../../../temp/JavaSoundDemo/JavaSoundDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../httpupload/httpupload.iml" filepath="$PROJECT_DIR$/../httpupload/httpupload.iml" />
       <module fileurl="file://$PROJECT_DIR$/mikker.iml" filepath="$PROJECT_DIR$/mikker.iml" />
     </modules>
   </component>

@@ -3,17 +3,19 @@ package ee.mattijagula.mikker.ui;
 import ee.mattijagula.mikker.recorder.Recorder;
 import ee.mattijagula.mikker.recorder.RecordingEvent;
 import ee.mattijagula.mikker.recorder.RecordingListener;
+import ee.mattijagula.mikker.upload.ProgressListener;
+import ee.mattijagula.mikker.upload.UploadFailedException;
 import ee.mattijagula.mikker.upload.Uploader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class SaveButton extends JButton implements ActionListener, RecordingListener {
     private final ImageIcon save = new Icons().getSaveIcon();
     private final ImageIcon ok = new Icons().getOkIcon();
+    private static final Color PROGRESS_COLOR = new Color(0, 0xaa, 0, 127);
 
     private final Recorder recorder;
     private final Uploader uploader;
@@ -50,29 +52,52 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
-        try {
-            uploader.upload(recorder.getRecording());
-            setIcon(overlayIcon());
-            setEnabled(false);
+        final LevelDisplayingIcon level = new LevelDisplayingIcon(save, PROGRESS_COLOR);
+        setIcon(level);
+        setEnabled(false);
 
-            listener.onUploadCompleted();
-            
-            System.out.println("Uploaded file");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        listener.onUploadStarted();
+
+        final ProgressListener progressListener = new ProgressListener() {
+            public void transferred(long transferred, long total) {
+                int percent = (int) (100.0 * transferred / total);
+                level.displayLevel(percent);
+                repaint();
+            }
+
+            public void finished() {
+                System.out.println("finished");
+                setIcon(overlayIcon());
+                recorder.deleteRecording();
+            }
+        };
+
+        launchUploadingThread(progressListener);
+    }
+
+    private void launchUploadingThread(final ProgressListener progressListener) {
+        new Thread() {
+            public void run() {
+                try {
+                    uploader.upload(recorder.getRecording(), progressListener);
+                } catch (UploadFailedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     public void onRecordingEvent(RecordingEvent event) {
-        if (event.isNewRecordingFinished())
+        if (event.isNewRecordingFinished()) {
+            setIcon(save);
             setEnabled(true);
+        }
         if (!event.isRecordingAvailable()) {
             setEnabled(false);
-            setIcon(save);
         }
     }
 
     public interface UploadListener {
-        void onUploadCompleted();
+        void onUploadStarted();
     }
 }

@@ -25,7 +25,7 @@ public class FilenameField extends JTextField implements RecordingListener, Save
             setEnabled(false);
     }
 
-    public void onUploadCompleted() {
+    public void onUploadStarted() {
         setEnabled(false);
     }
 

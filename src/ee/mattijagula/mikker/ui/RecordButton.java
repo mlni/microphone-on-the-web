@@ -6,20 +6,23 @@ import ee.mattijagula.mikker.recorder.RecordingEvent;
 import ee.mattijagula.mikker.recorder.RecordingListener;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RecordButton extends JButton implements RecordingListener {
+    private static final Color LEVEL_COLOR = new Color(0xaa, 0, 0, 127);
+    
     private final Recorder recorder;
-    private final int maxDuration;
 
+    private final int maxDuration;
     private boolean recording = false;
+
     private boolean playing = false;
 
     private Timer timer;
 
     private ActionListener current = null;
-
     private final LevelDisplayingIcon levelDisplayingIcon;
 
     public RecordButton(Recorder recorder, int maxDuration) {
@@ -27,7 +30,7 @@ public class RecordButton extends JButton implements RecordingListener {
         this.recorder = recorder;
         this.maxDuration = maxDuration;
 
-        this.levelDisplayingIcon = new LevelDisplayingIcon(new Icons().getStopIcon());
+        this.levelDisplayingIcon = new LevelDisplayingIcon(new Icons().getStopIcon(), LEVEL_COLOR);
 
         setEnabled(false);
 
