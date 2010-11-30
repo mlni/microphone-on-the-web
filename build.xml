@@ -1,9 +1,10 @@
 <project name="Mikrofoni applet" default="jar">
     <property name="jar.name" value="microphone-on-the-web" />
-    <property name="jar.version" value="0.2" />
+    <property name="jar.version" value="0.3" />
 
     <path id="class.path">
         <fileset dir="lib"/>
+        <fileset dir="buildlib"/>
     </path>
 
     <target  name="clean">
@@ -23,6 +24,18 @@
         <jar jarfile="dist/${jar.name}-${jar.version}.jar" manifest="etc/manifest.txt">
             <fileset dir="target" />
             <fileset dir="src" />
+        </jar>
+
+        <delete dir="dist/tmp"/>
+        <mkdir dir="dist/tmp"/>
+
+        <unzip dest="dist/tmp">
+            <fileset dir="lib"/>
+        </unzip>
+        <unzip dest="dist/tmp" src="dist/${jar.name}-${jar.version}.jar"/>
+
+        <jar jarfile="dist/${jar.name}-${jar.version}.jar" manifest="etc/manifest.txt">
+            <fileset dir="dist/tmp"/>
         </jar>
 
         <signjar jar="dist/${jar.name}-${jar.version}.jar" signedjar="dist/${jar.name}-${jar.version}-signed.jar"

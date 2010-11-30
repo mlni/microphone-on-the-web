@@ -57,9 +57,9 @@ public class Uploader {
         post.setRequestEntity(new ProgressReportingRequestEntity(requestEntity, progressListener));
 
         int status = client.executeMethod(post);
-        if (status == HttpStatus.SC_OK) {
+        if (status >= 200 && status <= 400) {
             progressListener.finished();
-            System.out.println("Upload complete, response=" + post.getResponseBodyAsString());
+            System.out.println("Upload complete, response: " + status + " - " + post.getResponseBodyAsString());
         } else {
             throw new UploadFailedException("Upload failed with code " + status
                     + " : " + HttpStatus.getStatusText(status));
