@@ -41,6 +41,7 @@ public class RecordButton extends JButton implements RecordingListener {
         if (playing) {
             if (!event.isPlaying()) {
                 resetPlayButton();
+                playing = false;
             }
             if (!event.isRecordingAvailable()) {
                 recorder.stopPlaying();
@@ -54,8 +55,8 @@ public class RecordButton extends JButton implements RecordingListener {
     }
 
     private void resetPlayButton() {
-        playing = false;
         setIcon(new Icons().getPlayIcon());
+        setToolTipText("Replay the recorded clip");
     }
 
     private void resetRecordButton() {
@@ -63,6 +64,7 @@ public class RecordButton extends JButton implements RecordingListener {
         playing = false;
 
         setIcon(new Icons().getRecordIcon());
+        setToolTipText("Record a new clip");
 
         replaceActionListener(new RecordingActionListener());
     }
@@ -96,7 +98,7 @@ public class RecordButton extends JButton implements RecordingListener {
             } else {
                 recorder.stopRecording();
                 recording = false;
-                setIcon(new Icons().getPlayIcon());
+                resetPlayButton();
                 replaceActionListener(new ReplayingActionListener());
 
                 if (timer != null) {
