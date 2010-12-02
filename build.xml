@@ -40,6 +40,8 @@
 
         <signjar jar="dist/${jar.name}-${jar.version}.jar" signedjar="dist/${jar.name}-${jar.version}-signed.jar"
                 keystore="etc/matti-jagula.keystore" storepass="changeit" alias="mykey" />
+
+        <delete dir="dist/tmp"/>
         <copy file="index.html" todir="dist" />
     </target>
 

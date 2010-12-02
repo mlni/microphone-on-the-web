@@ -23,6 +23,8 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
     private final Uploader uploader;
     private UploadListener listener;
 
+    private Timer iconRepaintTimer;
+
     public SaveButton(Recorder soundRecorder, Uploader uploader, UploadListener listener) {
         setIcon(save);
 
@@ -60,17 +62,22 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
         setEnabled(false);
 
         listener.onUploadStarted();
+        iconRepaintTimer = new Timer(100, new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                SaveButton.this.repaint();
+            }
+        });
 
         final ProgressListener progressListener = new ProgressListener() {
             public void transferred(long transferred, long total) {
                 int percent = (int) (100.0 * transferred / total);
                 level.displayLevel(percent);
-                repaint();
             }
 
             public void finished() {
                 System.out.println("finished");
                 setIcon(overlayIcon(ok));
+                iconRepaintTimer.stop();
                 recorder.deleteRecording();
             }
         };
