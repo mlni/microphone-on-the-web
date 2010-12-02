@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class LevelDisplayingIcon implements Icon {
     private final ImageIcon icon;
-    private int currentLevel = 0;
+    private volatile int currentLevel = 0;
     private Color overlayColor;
 
     public LevelDisplayingIcon(ImageIcon icon, Color overlayColor) {
