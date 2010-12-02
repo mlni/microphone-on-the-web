@@ -67,6 +67,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
                 SaveButton.this.repaint();
             }
         });
+        iconRepaintTimer.start();
 
         final ProgressListener progressListener = new ProgressListener() {
             public void transferred(long transferred, long total) {
