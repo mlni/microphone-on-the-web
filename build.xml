@@ -22,6 +22,7 @@
 
         <jar jarfile="dist/${jar.name}-${jar.version}.jar" manifest="etc/manifest.txt">
             <fileset dir="target" />
+            <fileset dir="src" includes="icons/**" />
         </jar>
 
         <signjar jar="dist/${jar.name}-${jar.version}.jar" signedjar="dist/${jar.name}-${jar.version}-signed.jar"

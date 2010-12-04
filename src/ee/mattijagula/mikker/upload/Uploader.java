@@ -23,7 +23,6 @@ public class Uploader {
     private void doUpload(byte[] content, ProgressListener progressListener) throws IOException {
         URL url = new URL(ctx.getUploadUrl());
         SimpleHttpMultiformRequest post = new SimpleHttpMultiformRequest(url, progressListener);
-        post.debugResponse();
         
         post.addHeader("User-Agent", ctx.getUserAgent());
         post.addHeader("Cookie", ctx.getCookies());

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="80ca8187-7b77-40d4-837a-fd20dc1e10fa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" afterPath="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
     </list>
     <ignored path=".idea/workspace.xml" />
@@ -69,10 +69,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SimpleHttpMultiformRequest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SimpleHttpMultiformRequest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/SimpleHttpMultiformRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="54" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.44488713">
+            <state line="133" column="54" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,28 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/result.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="0" selection-start="4312" selection-end="4312" vertical-scroll-proportion="-14.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="14" selection-start="745" selection-end="745" vertical-scroll-proportion="-14.4">
+            <state line="23" column="36" selection-start="730" selection-end="730" vertical-scroll-proportion="-13.8">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Uploader.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Uploader.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="65" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.0">
+            <state line="25" column="8" selection-start="828" selection-end="828" vertical-scroll-proportion="0.3984064">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -145,11 +136,11 @@
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/CountingOutputStream.java" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/RecorderApplet.java" />
-        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/SimpleHttpMultiformRequest.java" />
         <option value="$PROJECT_DIR$/result.html" />
-        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java" />
       </list>
     </option>
   </component>
@@ -594,7 +585,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed uploaded filename&#10;changed uploading to write in chunks of 1kb in order to fix progress display" />
+    <option name="LAST_COMMIT_MESSAGE" value="left sources out of applet jar&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -607,7 +598,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.7003058" />
-    <MESSAGE value="cleaned up exploration code&#10;added toString to Pair" />
     <MESSAGE value="added manifest to jar" />
     <MESSAGE value="documented supported parameters&#10;made max recording duration configurable&#10;removed cookie_names parameter, always send all known cookies" />
     <MESSAGE value="fixed error handling on microphone initialization&#10;reduced applet dimensions&#10;fixed button widths on windows&#10;added determining of user agent&#10;cleaned up uploader&#10;fixed reading cookies and useragent on firefox on linux&#10;" />
@@ -632,6 +622,7 @@
     <MESSAGE value="fixed upload progress bar redraw" />
     <MESSAGE value="threw out apache httpclient, as it made the applet overly large and due to the requirement on commons logging didn't actually work in production&#10;&#10;added a simplistic progress reporting http uploader" />
     <MESSAGE value="fixed uploaded filename&#10;changed uploading to write in chunks of 1kb in order to fix progress display" />
+    <MESSAGE value="left sources out of applet jar&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -713,29 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="65" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="0" selection-start="4312" selection-end="4312" vertical-scroll-proportion="-14.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="14" selection-start="745" selection-end="745" vertical-scroll-proportion="-14.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
@@ -747,7 +715,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/SimpleHttpMultiformRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="54" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.44488713">
+        <state line="133" column="54" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="36" selection-start="730" selection-end="730" vertical-scroll-proportion="-13.8">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ee/mattijagula/mikker/upload/Uploader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="8" selection-start="828" selection-end="828" vertical-scroll-proportion="0.3984064">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
