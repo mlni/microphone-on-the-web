@@ -18,7 +18,7 @@ public class InMemoryAudioStream extends OutputStream {
 
     @Override
     public void write(int i) throws IOException {
-        byteStream.write(i);
+        zipStream.write(i);
         length++;
     }
 

@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Main UI component of the applet.
+ */
 public class RecorderPanel extends JPanel {
     public RecorderPanel(Configuration ctx, final Recorder soundRecorder) {
 
@@ -48,9 +51,9 @@ public class RecorderPanel extends JPanel {
 
         Uploader uploader = new Uploader(ctx);
 
-        SaveButton saveButton = new SaveButton(soundRecorder, uploader, filename);
-        soundRecorder.addListener(saveButton);
-        buttonBar.add(fixButtonWidthOnWindows(saveButton));
+        UploadButton uploadButton = new UploadButton(soundRecorder, uploader, filename);
+        soundRecorder.addListener(uploadButton);
+        buttonBar.add(fixButtonWidthOnWindows(uploadButton));
     }
 
     private JButton fixButtonWidthOnWindows(JButton button) {

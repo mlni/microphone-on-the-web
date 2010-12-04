@@ -1,4 +1,7 @@
-package ee.mattijagula.mikker.upload;
+package ee.mattijagula.mikker.upload.http;
+
+import ee.mattijagula.mikker.upload.CountingOutputStream;
+import ee.mattijagula.mikker.upload.ProgressListener;
 
 import java.io.*;
 import java.net.Socket;
@@ -10,9 +13,15 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * A minimalistic HTTP multipart form client for uploading a single file to a web server.
+ * It doesn't do redirects, chunked connections, http proxies or anything fancy, but it does upload
+ * file to a form in a way that allows tracking the upload progress in a more or less reasonable
+ * way. 
+ */
 public class SimpleHttpMultiformRequest {
-    private static final String BOUNDARY = "----WebKitFormBoundary8NHXoPOgtdmTKB7e";
-    private static final String NEWLINE = "\r\n";
+    static final String BOUNDARY = "----WebKitFormBoundary8NHXoPOgtdmTKB7e";
+    static final String NEWLINE = "\r\n";
     
     private URL url;
     private ProgressListener listener;
@@ -168,100 +177,4 @@ public class SimpleHttpMultiformRequest {
         return new StringBuilder("POST " + url.getPath() + " HTTP/1.1" + NEWLINE);
     }
 
-    private interface Part {
-        long length();
-        byte[] header();
-        byte[] content();
-        byte[] footer();
-    }
-
-    private class ContentPart implements Part {
-        private byte bytes[];
-
-        public ContentPart(String name, String value) {
-            String contents = "";
-            contents += "--" + BOUNDARY + NEWLINE;
-            contents += "Content-Disposition: form-data; name=\""+ name +"\"" + NEWLINE;
-            contents += "Content-Type: text/plain; charset=US-ASCII" + NEWLINE;
-            contents += "Content-Transfer-Encoding: 8bit" + NEWLINE;
-            contents += NEWLINE;
-            contents += value;
-            contents += NEWLINE;
-            
-            this.bytes = contents.getBytes();
-        }
-
-        public long length() {
-            return bytes.length;
-        }
-
-        public byte[] header() {
-            return new byte[0];
-        }
-
-        public byte[] content() {
-            return bytes;
-        }
-
-        public byte[] footer() {
-            return new byte[0];
-        }
-    }
-
-    private class FileContentPart implements Part {
-        private byte header[];
-        private byte content[];
-        private byte footer[];
-        public FileContentPart(String formFieldName, String filename, String mimeType, byte[] content) {
-            String prefix = "--" + BOUNDARY + NEWLINE;
-            prefix += "Content-Disposition: form-data; name=\"" + formFieldName + "\"; " +
-                    "filename=\"" + filename + "\"" + NEWLINE;
-            prefix += "Content-Type: " + mimeType + NEWLINE;
-            prefix += "Content-Transfer-Encoding: binary" + NEWLINE;
-            prefix += NEWLINE;
-            this.header = prefix.getBytes();
-
-            // TODO: assumes that there's one file content and adds final boundary
-            String suffix = NEWLINE;
-            suffix += "--" + BOUNDARY + "-- " + NEWLINE;
-            this.footer = suffix.getBytes();
-
-            this.content = content;
-        }
-
-        public long length() {
-            return header.length + content.length + footer.length;
-        }
-
-        public byte[] header() {
-            return header;
-        }
-
-        public byte[] content() {
-            return content;
-        }
-
-        public byte[] footer() {
-            return footer;
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        URL url = new URL("http://localhost/~matti/recorder/upload.php");
-        SimpleHttpMultiformRequest req = new SimpleHttpMultiformRequest(url, new ProgressListener() {
-            public void transferred(long transferred, long total) {
-                System.out.println(" " + transferred + " of " + total);
-            }
-
-            public void finished() {
-                System.out.println("finished");
-            }
-        });
-        
-        req.addHeader("Cookie", "chuch=Norris; secret=salajane");
-        req.addHeader("User-Agent", "Mozilla Gopher/1.0");
-
-        req.addPostParameter("name", "value");
-        req.send("fail", "failinimi.txt", "text/plain", "KALAMAJA".getBytes());
-    }
 }

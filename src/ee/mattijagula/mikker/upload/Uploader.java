@@ -1,10 +1,14 @@
 package ee.mattijagula.mikker.upload;
 
 import ee.mattijagula.mikker.Configuration;
+import ee.mattijagula.mikker.upload.http.SimpleHttpMultiformRequest;
 
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Interface for the file upload subsystem.
+ */
 public class Uploader {
     private Configuration ctx;
 

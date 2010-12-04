@@ -4,6 +4,10 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * An outputstream wrapper that keeps track of the current progress of writing to the
+ * stream and reports it to a ProgressListener.
+ */
 public class CountingOutputStream extends FilterOutputStream {
     private final ProgressListener listener;
     private final long totalLength;

@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SaveButton extends JButton implements ActionListener, RecordingListener {
+public class UploadButton extends JButton implements ActionListener, RecordingListener {
     private final ImageIcon save = new Icons().getSaveIcon();
     private final ImageIcon ok = new Icons().getOkIcon();
     private final ImageIcon error = new Icons().getErrorIcon();
@@ -25,7 +25,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
 
     private Timer iconRepaintTimer;
 
-    public SaveButton(Recorder soundRecorder, Uploader uploader, UploadListener listener) {
+    public UploadButton(Recorder soundRecorder, Uploader uploader, UploadListener listener) {
         setIcon(save);
 
         this.recorder = soundRecorder;
@@ -64,7 +64,7 @@ public class SaveButton extends JButton implements ActionListener, RecordingList
         listener.onUploadStarted();
         iconRepaintTimer = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                SaveButton.this.repaint();
+                UploadButton.this.repaint();
             }
         });
         iconRepaintTimer.start();

@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Main entry point to the sound recording/replaying functionality subsystem.
+ */
 public class SoundRecorder implements Recorder {
     private final String filename;
     private final List<RecordingListener> listeners = new ArrayList<RecordingListener>();
