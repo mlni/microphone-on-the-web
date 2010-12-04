@@ -32,6 +32,6 @@ public class Uploader {
             post.addPostParameter(pair.key, pair.value);
         }
 
-        post.send(ctx.getFileFieldName(), ctx.getFilename(), ctx.getUploadMimeType(), content);
+        post.send(ctx.getFileFieldName(), ctx.getUploadFilename(), ctx.getUploadMimeType(), content);
     }
 }

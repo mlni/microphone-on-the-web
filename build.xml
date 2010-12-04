@@ -1,6 +1,6 @@
 <project name="Mikrofoni applet" default="jar">
     <property name="jar.name" value="microphone-on-the-web" />
-    <property name="jar.version" value="0.4" />
+    <property name="jar.version" value="0.5" />
 
     <path id="class.path">
         <fileset dir="buildlib"/>

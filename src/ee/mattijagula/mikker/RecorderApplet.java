@@ -19,10 +19,7 @@ public class RecorderApplet extends JApplet implements Configuration.ParameterSo
         usePlatformLookAndFeel();
 
         System.out.println("Initializing microphone");
-
         recorder.initializeMicrophone();
-
-        System.out.println("memory: " + Runtime.getRuntime().maxMemory());
     }
 
     @Override

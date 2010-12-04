@@ -87,9 +87,9 @@ public class SimpleHttpMultiformRequest {
         requestStream.write(headerString.toString().getBytes());
 
         for (Part part : parts) {
-            requestStream.write(part.header());
-            requestStream.write(part.content());
-            requestStream.write(part.footer());
+            writeChunked(requestStream, part.header());
+            writeChunked(requestStream, part.content());
+            writeChunked(requestStream, part.footer());
         }
         requestStream.flush();
 
@@ -105,6 +105,16 @@ public class SimpleHttpMultiformRequest {
             consumeResponse(response);
         } else {
             throw new IOException("Error uploading: " + responseCode);
+        }
+    }
+
+    private void writeChunked(OutputStream requestStream, byte[] bytes) throws IOException {
+        final int BUFFER_SIZE = 1024;
+        int index = 0;
+        while (index < bytes.length - 1) {
+            int writeSize = Math.min(BUFFER_SIZE, bytes.length - index);
+            requestStream.write(bytes, index, writeSize);
+            index += writeSize;
         }
     }
 
