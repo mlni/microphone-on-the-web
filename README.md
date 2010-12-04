@@ -18,10 +18,11 @@ The project implements a java applet that can record, replay and upload a clip o
 
 The UI is implemented in beautiful engineer-designed Swing application using icons from Gnome project. During recording the record button displays approximate volume level on the background of the button. The upload button displays upload progress very similarly on the background of the upload button.
 
-http://dilbert.com/dyn/str_strip/000000000/00000000/0000000/000000/00000/2000/600/2652/2652.strip.gif
+[About engineer-designed interfaces](http://dilbert.com/dyn/str_strip/000000000/00000000/0000000/000000/00000/2000/600/2652/2652.strip.gif)
 
 
 You can tune the following configuration parameters of the applet:
+
 * upload url
 * upload field name
 * additional post parameters to send with the upload request (eg, name of the submit button if needed)
