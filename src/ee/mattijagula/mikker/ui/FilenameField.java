@@ -7,15 +7,31 @@ import ee.mattijagula.mikker.recorder.RecordingListener;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 public class FilenameField extends JTextField implements RecordingListener, UploadButton.UploadListener {
-    private Configuration ctx;
+    private final Configuration ctx;
+    private static final int MAX_LENGTH = 100;
+    private static final String ALLOWED_CHARS = "abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXY0123456789-_+()[],! ";
 
     public FilenameField(final Configuration conf) {
         this.ctx = conf;
+        this.setDocument(new LengthAndCharFilteringDocument());
+
         this.setText(conf.getFilename());
-        this.getDocument().addDocumentListener(new OnChangeListener(conf));
+        this.getDocument().addDocumentListener(new OnChangeListener());
         this.setEnabled(false);
+    }
+
+    public static String filterIllegalChars(String str) {
+        String result = "";
+        for (char c : str.toCharArray()) {
+            if (ALLOWED_CHARS.contains(Character.toString(c)))
+                result += c;
+        }
+        return result;
     }
 
     public void onRecordingEvent(RecordingEvent event) {
@@ -30,20 +46,27 @@ public class FilenameField extends JTextField implements RecordingListener, Uplo
     }
 
     private class OnChangeListener implements DocumentListener {
-        private final Configuration conf;
-
-        public OnChangeListener(Configuration conf) {
-            this.conf = conf;
-        }
-
         public void insertUpdate(DocumentEvent documentEvent) {
-            conf.updateFilename(getText());
+            ctx.updateFilename(getText());
         }
 
         public void removeUpdate(DocumentEvent documentEvent) {
         }
 
         public void changedUpdate(DocumentEvent documentEvent) {
+        }
+    }
+
+    private static class LengthAndCharFilteringDocument extends PlainDocument {
+        @Override
+        public void insertString(int pos, String str, AttributeSet attributeSet) throws BadLocationException {
+            String onlyLegalCharacters = filterIllegalChars(str);
+            if (this.getLength() > MAX_LENGTH)
+                return;
+
+            int maxAppendLength = Math.min(MAX_LENGTH - getLength(), onlyLegalCharacters.length());
+            String cutToMaxFittingSize = onlyLegalCharacters.substring(0, maxAppendLength);
+            super.insertString(pos, cutToMaxFittingSize, attributeSet);
         }
     }
 }

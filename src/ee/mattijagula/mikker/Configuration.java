@@ -2,9 +2,7 @@ package ee.mattijagula.mikker;
 
 import ee.mattijagula.mikker.upload.KeyValuePairParser;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
-import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -113,7 +111,7 @@ public class Configuration {
     }
 
     public String getUploadFilename() {
-        return urlencode(filename) + "-" + currentDate() + ".zip";
+        return filename + "-" + currentDate() + ".zip";
     }
 
     public String getRecordingFilename() {
@@ -138,14 +136,6 @@ public class Configuration {
 
     private String currentDate() {
         return new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
-    }
-
-    private String urlencode(String str) {
-        try {
-            return URLEncoder.encode(str, "UTF-8").replaceAll("\\.", "_");
-        } catch (UnsupportedEncodingException e) {
-            return "";
-        }
     }
 
     private String composeUploadUrl(ParameterSource cfg, String relativePath) {
